@@ -1,0 +1,260 @@
+class: center
+name: title
+count: false
+
+<img src="content/images/rust-logo-blk.svg" alt="Rust logo" width="250rem" height="auto">
+
+# What's *unique* about Rust?
+
+.grey[Nicholas Matsakis]
+
+---
+
+# I’ve been working on Rust since 2011…
+
+When I started:
+- repo was `https://github.com/graydon/rust`
+- it warned that Rust might eat your laundry
+
+---
+
+# I’ve been working on Rust since 2011…
+
+Rust syntax was...different:
+
+```
+tag t<@T> { none; some(T); }
+```
+
+<!-- 
+citation
+https://github.com/rust-lang/rust/blob/142f63fe785ce8f2e5d9cc8edc6a0eaf1c21e46b/src/lib/option.rs#L3
+-->
+
+--
+
+For those who know Rust, today that would look like:
+
+```rust
+enum Option<T> {
+  None,
+  Some(T),
+}
+```
+---
+
+# A few things have changed…
+
+<img src="content/images/total-crates-over-time.svg" alt="Total crates over time" width="1000rem" height="auto">
+
+---
+
+# People are using Rust in production
+
+---
+
+# More importantly, people *like* Rust
+
+<img src="content/images/stack-overflow.png" 
+     alt="Stackoverflow survey results from 2018" 
+     width="auto" 
+     height="auto">
+
+---
+
+# What are people excited about?
+
+Or, as the title of my talk says, “What is unique about Rust?”
+
+---
+
+# Hype?
+
+---
+
+# Domain?
+
+Is it... &#10024; **systems programming** &#10024;?
+
+--
+
+- Programming where **resources are limited**
+  (Bjarne Stroustroup, paraphrased, Lang.NEXT 2014)
+
+---
+
+# Qualities Rust shares with C(++)
+
+- Rust operations map directly to machine instructions
+- Rust has **no runtime** and can use the "C ABI":
+  - Want to write a plugin for Python or Ruby? You can do it in Rust.
+  - Want to write a **kernel**? You can do it in Rust.
+
+---
+
+# Safety?
+
+|                       | C++ |
+| --------------------- | --- |
+| Control, flexibility  | 🎉  |
+| Minimal to no runtime | 🎉  |
+| Double free           | 😢  |
+| Use after free        | 😢  |
+| Null pointer          | 😢  |
+| Data race             | 😢  |
+
+---
+
+# Safety?
+
+|                       | C++ | GC    |
+| --------------------- | --- | ----- |
+| Control, flexibility  | 🎉  | 🤷‍♀️ |
+| Minimal to no runtime | 🎉  | 🤷‍♀️ |
+| Double free           | 😢  | 🎉    |
+| Use after free        | 😢  | 🎉    |
+| Null pointer          | 😢  | 😢    |
+| Data race             | 😢  | 😢    |
+
+---
+
+# Safety?
+
+|                       | C++ | GC    | Rust |
+| --------------------- | --- | ----- | ---- |
+| Control, flexibility  | 🎉  | 🤷‍♀️ | 😎   |
+| Minimal to no runtime | 🎉  | 🤷‍♀️ | 😎   |
+| Double free           | 😢  | 🎉    | 😎   |
+| Use after free        | 😢  | 🎉    | 😎   |
+| Null pointer          | 😢  | 😢    | 😎   |
+| Data race             | 😢  | 😢    | 😎   |
+
+---
+
+# How do we do that?
+
+Using a **type system**.
+
+---
+
+# Type system can be a hard sell
+
+---
+
+# Type system as superpower
+
+---
+
+# What makes the difference?
+
+Rust lets you **say more**.
+
+---
+
+# Enums
+
+Borrowed from functional languages like Haskell and Ocaml
+
+```rust
+enum Shape {
+  Circle { radius: u32 },
+  Square { width: u32, height: u32 },
+}
+```
+
+---
+
+# Matching
+
+Borrowed from functional languages like Haskell and Ocaml
+
+```rust
+let area = match shape {
+  Shape::Circle { radius } =>
+    radius * radius * PI,
+
+  Shape::Square { width, height } =>
+    width * height,
+};
+```
+
+---
+
+# Null pointers
+
+```rust
+enum Option<T> {
+  Some(T),
+  None,
+}
+```
+
+---
+
+# Null pointers
+
+```rust
+// A "nullable string"
+let optional_string: Option<String>;
+
+match optional_string {
+  None => {
+    // String is null -- do something.
+  }
+  
+  Some(s) => {
+    // String is not null, use `s`.
+  }
+}
+```
+
+---
+
+# Ownership and borrowing
+
+---
+
+# Every language lets you give
+
+```js
+let manzana = new Apple();
+eat(manzana);
+manzana.setKind(GOLDEN_DELICIOUS);
+
+function eat(manzana) {
+  ...
+}
+```
+
+--
+
+.goldnordelish[
+Neither gold, nor delicious -- my daughter
+]
+
+---
+
+# Ownership lets you take away
+
+```rust
+let manzana = Apple::new();
+eat(manzana);
+manzana.set_kind(AppleKind::GoldenDelicious);
+
+fn eat(manzana: Apple) {
+  ...
+}
+```
+
+---
+
+class: center
+name: title
+count: false
+
+<img src="content/images/rust-logo-blk.svg" alt="Rust logo" width="250rem" height="auto">
+
+# Thanks
+
+.grey[Twitter/Github: spastorino]<br/>
+.grey[Email: spastorino@gmail.com]
