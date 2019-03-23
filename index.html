@@ -171,6 +171,25 @@
         left: 400px;
         background-color: yellow;
       }
+
+      .hide {
+        opacity: 0;
+      }
+
+      .fadein {
+        animation-duration: 3s;
+        animation-name: fade;
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
     </style>
   </head>
   <body>

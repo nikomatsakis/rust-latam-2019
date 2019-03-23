@@ -80,6 +80,12 @@ immediately. Others we did as part of Rust 2018. Some we may never do.
 
 ---
 
+# People are using Rust in production
+
+.center[<img src="content/images/kermit.gif" alt="Kermit happy!" width="100%" height="auto">]
+
+---
+
 # More importantly, people *like* Rust
 
 <img src="content/images/stack-overflow.png"
@@ -89,9 +95,12 @@ immediately. Others we did as part of Rust 2018. Some we may never do.
 
 ---
 
-# What are people excited about?
+# More importantly, people *like* Rust
+.center[<img src="content/images/kermit.gif" alt="Kermit happy!" width="100%" height="auto">]
 
-Or, as the title of my talk says, “What is unique about Rust?”
+---
+
+# What are people excited about?
 
 ---
 
@@ -106,14 +115,29 @@ Is it... &#10024; **systems programming** &#10024;?
 --
 
 "Programming where **resources are limited**" <br>
-&mdash; Bjarne Stroustroup, paraphrased, Lang.NEXT 2014)
+&mdash; Bjarne Stroustroup, paraphrased, Lang.NEXT 2014
+
+---
+
+# Side-note: Lang.next
+
+.center[<img src="content/images/Lang.Next.jpg" alt="Lang.Next panel" width="100%" height="auto">]
+
+---
+
+# Side-note: Lang.next
+
+.center[<img src="content/images/kermit.gif" alt="Kermit happy!" width="100%" height="auto">]
 
 ---
 
 # Qualities Rust shares with C(++)
 
-- Control over memory layout, pointers, threads, etc
-- Rust has **no runtime** and can use the "C ABI":
+- Low-level control, highly optimizable:
+  - inline memory layout
+  - static dispatch
+  - no garbage collector or other runtime
+- Anywhere you use C, you can use Rust: 
   - Want to write a plugin for Python or Ruby? You can do it in Rust.
   - Want to write a **kernel**? You can do it in Rust.
 
@@ -180,8 +204,6 @@ Rust type system is more than structs with fields and methods.
 
 # Enums
 
-Borrowed from functional languages like Haskell and Ocaml
-
 ```rust
 enum Shape {
   Circle { radius: u32 },
@@ -189,16 +211,30 @@ enum Shape {
 }
 ```
 
+(Borrowed from functional languages like Haskell and Ocaml)
+
 ---
 
 # Matching
-
-Borrowed from functional languages like Haskell and Ocaml
 
 ```rust
 let area = match shape {
   Shape::Circle { radius } =>
     radius * radius * PI,
+
+  Shape::Square { width, height } =>
+    width * height,
+};
+```
+
+---
+
+# Matching
+
+```rust
+let area = match shape {
+  Shape::Circle { `radius` } =>
+    `radius` * `radius` * PI,
 
   Shape::Square { width, height } =>
     width * height,
@@ -230,7 +266,7 @@ match optional_string {
   }
 
   Some(s) => {
-    // String is not null, use `s`.
+    // String is not null, use 's'.
   }
 }
 ```
@@ -288,12 +324,8 @@ let manzana = new Apple();
 eat(manzana);
 *manzana.setKind(GOLDEN_DELICIOUS);
 
-function eat(manzana) {
-  ...
-}
+function eat(manzana) { ... }
 ```
-
---
 
 <img src="content/images/Apple3.svg"
      alt="object diagram">
@@ -301,32 +333,88 @@ function eat(manzana) {
 --
 
 "Neither golden, nor delicious." <br>
-&mdash; My daughter, in one of my proudest parenting moments
+&mdash; My daughter, in one of my prouder parenting moments
 
 ---
 
-# Ownership lets you take away
+# Rust lets you take away
 
 ```rust
-let mut manzana = Apple::new();
-eat(manzana);
-manzana.set_kind(AppleKind::GoldenDelicious);
+*fn main() {
+  let mut manzana = Apple::new();
+  eat(manzana);
+  manzana.set_kind(AppleKind::GoldenDelicious);
+}
+
+fn eat(manzana: Apple) { ... }
+```
+
+---
+
+# Rust lets you take away
+
+```rust
+fn main() {
+* let mut manzana = Apple::new();
+  eat(manzana);
+  manzana.set_kind(AppleKind::GoldenDelicious);
+}
+
+fn eat(manzana: Apple) { ... }
+```
+
+---
+
+# Rust lets you take away
+
+```rust
+fn main() {
+  let mut manzana = Apple::new();
+  eat(manzana);
+  manzana.set_kind(AppleKind::GoldenDelicious);
+}
+
+fn eat(manzana: Apple) { ... }
+```
+
+---
+
+# Rust lets you take away
+
+```rust
+fn main() {
+  let mut manzana = Apple::new();
+  eat(manzana);
+  manzana.set_kind(AppleKind::GoldenDelicious);
+}
+
+*fn eat(manzana: Apple) { ... }
+```
+
+---
+
+# Rust lets you take away
+
+```rust
+fn main() {
+  let mut manzana = Apple::new();
+  eat(manzana);
+  manzana.set_kind(AppleKind::GoldenDelicious);
+}
 
 fn eat(`manzana: Apple`) { ... }
 ```
 
---
-
-`eat` **takes ownership** of the `Apple`
-
 ---
 
-# Ownership lets you take away
+# Rust lets you take away
 
 ```rust
-let mut manzana = Apple::new();
-eat(manzana);
-*manzana.set_kind(AppleKind::GoldenDelicious);
+fn main() {
+  let mut manzana = Apple::new();
+  eat(manzana);
+* manzana.set_kind(AppleKind::GoldenDelicious);
+}
 
 fn eat(manzana: Apple) { ... }
 ```
@@ -335,7 +423,6 @@ fn eat(manzana: Apple) { ... }
 
 ```
 error[E0382]: borrow of moved value: 'manzana'
-  --> src/main.rs:17:4
      |
   16 |    eat(manzana);
      |        ------- `value moved here`
@@ -346,7 +433,11 @@ error[E0382]: borrow of moved value: 'manzana'
        which does not implement the 'Copy' trait
 ```
 
-.small[[try it on play](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=a65d19a6acd754ee606ad9471405109d)]
+<!--
+
+https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=a65d19a6acd754ee606ad9471405109d
+
+-->
 
 ---
 
@@ -364,6 +455,7 @@ func foo() {
   m["Hello"] = "Data Race"
 }
 ```
+
 ---
 
 # Channels in Go
@@ -422,7 +514,7 @@ fn main() {                         impl<T> Channel<T> {
 
 --
 
-- When you send data, the channel **takes ownership** of the data.
+When you send data, the channel **takes ownership** of the data.
 
 ---
 
@@ -437,11 +529,11 @@ fn main() {                         impl<T> Channel<T> {
 }                                   
 ```
 
-- When you send data, the channel **takes ownership** of the data.
+When you send data, the channel **takes ownership** of the data.
 
 --
 
-- That means the caller is **giving ownership away**.
+That means the caller is **giving ownership away**.
 
 ---
 
@@ -456,13 +548,13 @@ fn main() {                         impl<T> Channel<T> {
 }                                   
 ```
 
-- When you send data, the channel **takes ownership** of the data.
+When you send data, the channel **takes ownership** of the data.
 
-- That means the caller is **giving ownership away**.
+That means the caller is **giving ownership away**.
 
 --
 
-- So we get a compilation error when we try to use it later.
+So we get a **compilation error** when we try to use it later.
 
 ---
 
@@ -486,12 +578,21 @@ tell them that I don't remember the last time I debugged a crash.
 
 ---
 
-# This will be a pattern
+# Parallel APIs without ownership/borrowing
 
-- Easy: writing an API that lets people do stuff
-- Hard: **guiding them to use it correctly**
+.center[
+<img src="content/images/firespell.gif"
+     alt="cast spell, burn self">
+]
 
-Rust gives you the tools to do that.
+---
+
+# Rust lets you guide users
+
+.center[
+<img src="content/images/spiderman-whee.gif"
+     alt="with great power comes great... weeeeee!">
+]
 
 ---
 
