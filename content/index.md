@@ -20,6 +20,20 @@ When I started:
 
 # I’ve been working on Rust since 2011…
 
+When I started:
+- repo was `https://github.com/graydon/rust`
+- it warned that Rust might eat your laundry
+- my daughter was a few months old
+
+---
+
+background-image: url(content/images/DaphneDino.jpg)
+background-size: contain
+
+---
+
+# I’ve been working on Rust since 2011…
+
 Rust syntax was...different:
 
 ```
@@ -120,15 +134,11 @@ Is it... &#10024; **systems programming** &#10024;?
 "Programming where **resources are limited**" <br>
 &mdash; Bjarne Stroustroup, paraphrased, Lang.NEXT 2014
 
----
+--
 
-# Side-note: Lang.next
-
-.center[<img src="content/images/Lang.Next.jpg" alt="Lang.Next panel" width="100%" height="auto">]
+.center[<img src="content/images/Lang.Next.jpg" alt="Lang.Next panel" width="auto" height="100%">]
 
 ---
-
-# Side-note: Lang.next
 
 .center[<img src="content/images/kermit.gif" alt="Kermit happy!" width="100%" height="auto">]
 
@@ -584,8 +594,7 @@ tell them that I don't remember the last time I debugged a crash.
 # Parallel APIs without ownership/borrowing
 
 .center[
-<img src="content/images/firespell.gif"
-     alt="cast spell, burn self">
+![cast spell, burn self](content/images/firespell.gif)
 ]
 
 ---
