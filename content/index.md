@@ -106,6 +106,9 @@ immediately. Others we did as part of Rust 2018. Some we may never do.
 
 # Hype?
 
+.center[<img src="content/images/macarena.gif" alt="I'm 'hip'" width="100%" height="auto">]
+
+
 ---
 
 # Domain?
