@@ -1,4 +1,4 @@
-Talk to be given at Rust LATAM 2019.
+Talk to be given at Rust LATAM 2019. [View slides.](https://nikomatsakis.github.io/rust-latam-2019/)
 
 Based in part on Santiago Pastorino's excellent [Why
 Rust?](https://santiagopastorino.com/why-rust/) talk.
