@@ -136,6 +136,10 @@ Is it... &#10024; **systems programming** &#10024;?
 
 --
 
+<!--
+https://channel9.msdn.com/Events/Lang-NEXT/Lang-NEXT-2014/From-Parallel-to-Concurrent
+-->
+
 .center[<img src="content/images/Lang.Next.jpg" alt="Lang.Next panel" width="auto" height="100%">]
 
 ---
@@ -203,9 +207,30 @@ Using a **type system**.
 
 # Type system can be a hard sell
 
+.center[
+.forty[
+![Dog eating spinach](content/images/spinach-dog.jpg)
+]
+]
+
+.citation[
+Photo credit: Sanjoy Ghosh<br>
+`https://www.flickr.com/photos/sanjoy/4016632253/`
+]
+
 ---
 
-# Type system as superpower
+background-image: url(content/images/popeye.jpg)
+background-size: contain
+
+.white-text[
+# Type system as a superpower
+]
+
+.white-text[.citation[
+Photo credit: Salim Virji<br>
+`https://www.flickr.com/photos/salim/8594532469/`
+]]
 
 ---
 
@@ -304,6 +329,11 @@ function eat(manzana) {
 }
 ```
 
+.jslogo[
+<img src="content/images/js-logo.svg" alt="JS logo" >
+]
+
+
 --
 
 <img src="content/images/Apple1.svg"
@@ -323,6 +353,10 @@ function eat(manzana) {
 }
 ```
 
+.jslogo[
+<img src="content/images/js-logo.svg" alt="JS logo" >
+]
+
 --
 
 <img src="content/images/Apple2.svg"
@@ -339,6 +373,10 @@ eat(manzana);
 
 function eat(manzana) { ... }
 ```
+
+.jslogo[
+<img src="content/images/js-logo.svg" alt="JS logo" >
+]
 
 <img src="content/images/Apple3.svg"
      alt="object diagram">
@@ -469,6 +507,10 @@ func foo() {
 }
 ```
 
+.gologo[
+<img src="content/images/Go-Logo_Black.svg" alt="Go logo" width="50px" height="50px">
+]
+
 ---
 
 # Channels in Go
@@ -485,6 +527,10 @@ func foo() {
 * m["Hello"] = "Data Race"
 }
 ```
+
+.gologo[
+<img src="content/images/Go-Logo_Black.svg" alt="Go logo">
+]
 
 ---
 
@@ -612,7 +658,13 @@ tell them that I don't remember the last time I debugged a crash.
 
 - Zero-cost abstractions from C++
 - Modern conveniences
-- Sense of **artisanship**
+- Sense of **craftsmanship**
+
+Type system guides 
+
+---
+
+# Rust lets you guide users
 
 ---
 
