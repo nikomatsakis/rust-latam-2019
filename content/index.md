@@ -74,10 +74,7 @@ enum Option<T> {
 Actually, the first Rust production user was Tilde, way before 1.0.
 Too which my reaction was roughly...actually, it's quite interesting.
 Tilde putting Rust into production is what brought Yehuda Katz into
-Rust, and I think that when he saw some of the things in the language
-at the time, this "What?" was roughly his reaction as well. He
-agitated for a lot of changes.  Some of them we did
-immediately. Others we did as part of Rust 2018. Some we may never do.
+Rust -- definitely a mutually beneficial relationship.
 
 ---
 
@@ -637,11 +634,20 @@ tell them that I don't remember the last time I debugged a crash.
 
 ---
 
-# Parallel APIs without ownership/borrowing
+# A pattern
+
+- Easy to **expose** a high-performance API
+- Hard to **help users control it**
+
+--
 
 .center[
 ![cast spell, burn self](content/images/firespell.gif)
 ]
+
+---
+
+# Rust lets you guide users
 
 ---
 
