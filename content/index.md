@@ -108,16 +108,16 @@ Rust -- definitely a mutually beneficial relationship.
 
 # More importantly, people *like* Rust
 
-.peoplelike1[
-![Bodil tweets that Rust is a game changer](content/images/tweet-Bodil-game-changer.png)
-]
-
-.peoplelike2[
+.peoplelike-tl[
 ![johncarmarck tweets about Rust](content/images/tweet-johncarmack.png)
 ]
 
-.peoplelike3[
+.peoplelike-bl[
 ![ianmbuckley tweets about Rust](content/images/tweet-ianmbuckley.png)
+]
+
+.peoplelike-br[
+![Bodil tweets that Rust is a game changer](content/images/tweet-Bodil-game-changer.png)
 ]
 
 .peoplelike4[

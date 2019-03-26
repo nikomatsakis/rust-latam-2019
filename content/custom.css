@@ -309,24 +309,24 @@ mark, .mark {
     transform: translateY(-50%) translateX(-50%);
 }
 
-.peoplelike1 img {
+.peoplelike-tl img {
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 0%;
     width: 50%
 }
 
-.peoplelike2 img {
+.peoplelike-bl img {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 50%
+}
+
+.peoplelike-br img {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 50%
-}
-
-.peoplelike3 img {
-    position: absolute;
-    top: 50%;
-    left: 0%;
     width: 50%
 }
 
