@@ -55,6 +55,7 @@ enum Option<T> {
   Some(T),
 }
 ```
+
 ---
 
 # A few things have changed…
@@ -66,6 +67,14 @@ enum Option<T> {
 # People are using Rust in production
 
 --
+
+.center[
+![wycats loves Rust in 2013](content/images/tweet-wycats-loves-rust.png)
+]
+
+---
+
+# People are using Rust in production
 
 .center[<img src="content/images/what.gif" alt="What." width="100%" height="auto">]
 
@@ -99,6 +108,26 @@ Rust -- definitely a mutually beneficial relationship.
 
 # More importantly, people *like* Rust
 
+.peoplelike1[
+![Bodil tweets that Rust is a game changer](content/images/tweet-Bodil-game-changer.png)
+]
+
+.peoplelike2[
+![johncarmarck tweets about Rust](content/images/tweet-johncarmack.png)
+]
+
+.peoplelike3[
+![ianmbuckley tweets about Rust](content/images/tweet-ianmbuckley.png)
+]
+
+.peoplelike4[
+![hearts](content/images/Lovers-Hearts.png)
+]
+
+---
+
+# More importantly, people *like* Rust
+
 <img src="content/images/stack-overflow.png"
      alt="Stackoverflow survey results from 2018"
      width="auto"
@@ -112,6 +141,8 @@ Rust -- definitely a mutually beneficial relationship.
 ---
 
 # What are people excited about?
+
+.center[<img src="content/images/puzzle.png" alt="The puzzle" width="100%" height="auto">]
 
 ---
 
@@ -145,9 +176,13 @@ Is it... &#10024; **systems programming** &#10024;?
 
 ---
 
+name: puzzle
+
 .center[<img src="content/images/puzzle.png" alt="The puzzle" width="100%" height="auto">]
 
---
+---
+
+template: puzzle
 
 .zca[Zero-cost abstractions]
 
@@ -382,13 +417,31 @@ match optional_string {
 
 ---
 
-.center[<img src="content/images/puzzle.png" alt="The puzzle" width="100%" height="auto">]
+template: puzzle
 
 .zca[Zero-cost abstractions]
 
 --
 
-.modern_conveniences[Modern conveniences]
+.modern-conveniences[Modern conveniences]
+
+---
+
+# Modern conveniences is more than lang
+
+.center[![crates.io screenshot](content/images/crates-io.png)]
+
+---
+
+template: puzzle
+
+.zca[Zero-cost abstractions]
+
+.modern-conveniences[Modern conveniences]
+
+--
+
+.ownership-and-borrowing[Ownership and Borrowing]
 
 ---
 
@@ -408,10 +461,12 @@ Photo Credit: Nathan Kam<br>
 
 ---
 
+name: every-language-lets-you-give
+
 # Every language lets you give
 
 ```js
-*let manzana = new Apple();
+let manzana = new Apple();
 eat(manzana);
 manzana.setKind(GOLDEN_DELICIOUS);
 
@@ -425,50 +480,34 @@ function eat(manzana) {
 ]
 
 
---
+---
+
+template: every-language-lets-you-give
+
+.line1[
+![Arrow](content/images/Arrow.png)
+]
 
 <img src="content/images/Apple1.svg"
      alt="object diagram">
 
 ---
 
-# Every language lets you give
+template: every-language-lets-you-give
 
-```js
-let manzana = new Apple();
-*eat(manzana);
-manzana.setKind(GOLDEN_DELICIOUS);
-
-function eat(manzana) {
-  ... GLOBAL = manzana ...
-}
-```
-
-.jslogo[
-<img src="content/images/js-logo.svg" alt="JS logo" >
+.line2[
+![Arrow](content/images/Arrow.png)
 ]
-
---
 
 <img src="content/images/Apple2.svg"
      alt="object diagram">
 
 ---
 
-# Every language lets you give
+template: every-language-lets-you-give
 
-```js
-let manzana = new Apple();
-eat(manzana);
-*manzana.setKind(GOLDEN_DELICIOUS);
-
-function eat(manzana) {
-  ... GLOBAL = manzana ...
-}
-```
-
-.jslogo[
-<img src="content/images/js-logo.svg" alt="JS logo" >
+.line3[
+![Arrow](content/images/Arrow.png)
 ]
 
 <img src="content/images/Apple3.svg"
@@ -481,33 +520,7 @@ function eat(manzana) {
 
 ---
 
-# Rust lets you take away
-
-```rust
-*fn main() {
-  let mut manzana = Apple::new();
-  eat(manzana);
-  manzana.set_kind(AppleKind::GoldenDelicious);
-}
-
-function eat(manzana) { ... }
-```
-
----
-
-# Rust lets you take away
-
-```rust
-fn main() {
-* let mut manzana = Apple::new();
-  eat(manzana);
-  manzana.set_kind(AppleKind::GoldenDelicious);
-}
-
-function eat(manzana) { ... }
-```
-
----
+name: rust-lets-you-take-away
 
 # Rust lets you take away
 
@@ -516,52 +529,59 @@ fn main() {
   let mut manzana = Apple::new();
   eat(manzana);
   manzana.set_kind(AppleKind::GoldenDelicious);
-}
-
-function eat(manzana) { ... }
-```
-
----
-
-# Rust lets you take away
-
-```rust
-fn main() {
-  let mut manzana = Apple::new();
-  eat(manzana);
-  manzana.set_kind(AppleKind::GoldenDelicious);
-}
-
-*fn eat(manzana: Apple) { ... }
-```
-
----
-
-# Rust lets you take away
-
-```rust
-fn main() {
-  let mut manzana = Apple::new();
-  eat(manzana);
-  manzana.set_kind(AppleKind::GoldenDelicious);
-}
-
-fn eat(`manzana: Apple`) { ... }
-```
-
----
-
-# Rust lets you take away
-
-```rust
-fn main() {
-  let mut manzana = Apple::new();
-  eat(manzana);
-* manzana.set_kind(AppleKind::GoldenDelicious);
 }
 
 fn eat(manzana: Apple) { ... }
 ```
+
+---
+
+template: rust-lets-you-take-away
+
+.line1[
+.fourty[![Highlight the fn main](content/images/Arrow.png)]
+]
+
+---
+
+template: rust-lets-you-take-away
+
+.line2[
+.fourty[![Highlight the let mut](content/images/Arrow.png)]
+]
+
+---
+
+template: rust-lets-you-take-away
+
+.line3[
+.fourty[![Highlight the call to eat](content/images/Arrow.png)]
+]
+
+---
+
+template: rust-lets-you-take-away
+
+.line7[
+.fourty[![Highlight the eat fn](content/images/Arrow.png)]
+]
+
+
+---
+
+template: rust-lets-you-take-away
+
+.manzana-arrow[
+.fourty[![Highlight the eat fn](content/images/Arrow.png)]
+]
+
+---
+
+template: rust-lets-you-take-away
+
+.line4[
+![Highlight the `set_kind` call](content/images/Arrow.png)
+]
 
 --
 
@@ -744,10 +764,14 @@ So we get a **compilation error** when we try to use it later.
 
 ---
 
-# What just happened?
+# A pattern
 
-- In Go, we had a **dynamic error**
-- In Rust, the program **did not compile**
+- Easy to **expose** a high-performance API
+- Hard to **help users control it**
+
+.center[
+![cast spell, burn self](content/images/firespell.gif)
+]
 
 ???
 
@@ -760,47 +784,32 @@ then realize
 Tell story about me finally understanding what memory leaks are?
 
 Mention that the way I sell Rust to c++ programmers *now* is just to
-tell them that I don't remember the last time I debugged a crash.
+vtell them that I don't remember the last time I debugged a crash.
 
 ---
 
-# A pattern
+template: puzzle
 
-- Easy to **expose** a high-performance API
-- Hard to **help users control it**
+.zca[Zero-cost abstractions]
+
+.modern-conveniences[Modern conveniences]
+
+.ownership-and-borrowing[Ownership and Borrowing]
 
 --
 
-.center[
-![cast spell, burn self](content/images/firespell.gif)
-]
+.craftsmanship[Sense of **craftsmanship**]
 
 ---
 
-# Rust lets you guide users
-
----
-
-# Rust lets you guide users
-
-.center[
+.page-center[
 <img src="content/images/spiderman-whee.gif"
      alt="with great power comes great... weeeeee!">
 ]
 
 ---
 
-# So what is unique about Rust?
-
-- Zero-cost abstractions from C++
-- Modern conveniences
-- Sense of **craftsmanship**
-
-Type system guides 
-
----
-
-# Rust lets you guide users
+# Best in class
 
 ---
 
