@@ -230,4 +230,18 @@ mark, .mark {
     height: 150px;
 }
 
+.zca {
+    position: absolute;
+    left: 150px;
+    top: 150px;
+    color: #FFFFFF;
+}
+
+.modern_conveniences {
+    position: absolute;
+    right: 150px;
+    top: 150px;
+    color: #FFFFFF;
+}
+
 .group { }

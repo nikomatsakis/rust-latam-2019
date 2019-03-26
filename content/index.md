@@ -131,18 +131,6 @@ Is it... &#10024; **systems programming** &#10024;?
 "Programming where **resources are limited**" <br>
 &mdash; Bjarne Stroustroup, paraphrased, Lang.NEXT 2014
 
---
-
-<!--
-https://channel9.msdn.com/Events/Lang-NEXT/Lang-NEXT-2014/From-Parallel-to-Concurrent
--->
-
-.center[<img src="content/images/Lang.Next.jpg" alt="Lang.Next panel" width="auto" height="100%">]
-
----
-
-.center[<img src="content/images/kermit.gif" alt="Kermit happy!" width="100%" height="auto">]
-
 ---
 
 # Qualities Rust shares with C(++)
@@ -154,6 +142,14 @@ https://channel9.msdn.com/Events/Lang-NEXT/Lang-NEXT-2014/From-Parallel-to-Concu
 - Anywhere you use C, you can use Rust: 
   - Want to write a plugin for Python or Ruby? You can do it in Rust.
   - Want to write a **kernel**? You can do it in Rust.
+
+---
+
+.center[<img src="content/images/puzzle.png" alt="The puzzle" width="100%" height="auto">]
+
+--
+
+.zca[Zero-cost abstractions]
 
 ---
 
@@ -196,12 +192,6 @@ https://channel9.msdn.com/Events/Lang-NEXT/Lang-NEXT-2014/From-Parallel-to-Concu
 
 ---
 
-# How do we do that?
-
-Using a **type system**.
-
----
-
 # Type system can be a hard sell
 
 .center[
@@ -235,6 +225,14 @@ Photo credit: Salim Virji<br>
 
 Rust type system is more than structs with fields and methods.
 
+--
+
+Strong support for generic programming.
+
+Closures.
+
+Enums.
+
 ---
 
 # Enums
@@ -267,11 +265,53 @@ let area = match shape {
 # Matching
 
 ```rust
+let area = `match shape` {
+  Shape::Circle { radius } =>
+    radius * radius * PI,
+
+  Shape::Square { width, height } =>
+    width * height,
+};
+```
+
+---
+
+# Matching
+
+```rust
+let area = match shape {
+* Shape::Circle { radius } =>
+    radius * radius * PI,
+
+  Shape::Square { width, height } =>
+    width * height,
+};
+```
+
+---
+
+# Matching
+
+```rust
 let area = match shape {
   Shape::Circle { `radius` } =>
     `radius` * `radius` * PI,
 
   Shape::Square { width, height } =>
+    width * height,
+};
+```
+
+---
+
+# Matching
+
+```rust
+let area = match shape {
+  Shape::Circle { radius } =>
+    radius * radius * PI,
+
+* Shape::Square { width, height } =>
     width * height,
 };
 ```
@@ -292,9 +332,43 @@ enum Option<T> {
 # No more null pointers
 
 ```rust
-// A "nullable string"
-let optional_string: Option<String>;
+enum Option<T> {
+* Some(T),
+  None,
+}
+```
+---
 
+# No more null pointers
+
+```rust
+enum Option<T> {
+  Some(T),
+* None,
+}
+```
+
+---
+
+# No more null pointers
+
+```rust
+enum Option<T> {
+  Some(T),
+  None,
+}
+```
+
+```rust
+// A "nullable string"
+let optional_string: Option<String> = None;
+```
+
+---
+
+# No more null pointers
+
+```rust
 match optional_string {
   None => {
     // String is null -- do something.
@@ -308,9 +382,29 @@ match optional_string {
 
 ---
 
-# Ownership and borrowing
+.center[<img src="content/images/puzzle.png" alt="The puzzle" width="100%" height="auto">]
 
-<!-- FIXME -->
+.zca[Zero-cost abstractions]
+
+--
+
+.modern_conveniences[Modern conveniences]
+
+---
+
+background-image: url(content/images/ownership-and-borrowing.png)
+background-size: contain
+
+.white-text[
+# Ownership and borrowing
+]
+
+.white-text[
+.citation[
+Photo Credit: Nathan Kam<br>
+`https://www.youtube.com/watch?v=Tnssn9KcWLg`
+]
+]
 
 ---
 
@@ -322,7 +416,7 @@ eat(manzana);
 manzana.setKind(GOLDEN_DELICIOUS);
 
 function eat(manzana) {
-  ...
+  ... GLOBAL = manzana ...
 }
 ```
 
@@ -346,7 +440,7 @@ let manzana = new Apple();
 manzana.setKind(GOLDEN_DELICIOUS);
 
 function eat(manzana) {
-  ...
+  ... GLOBAL = manzana ...
 }
 ```
 
@@ -368,7 +462,9 @@ let manzana = new Apple();
 eat(manzana);
 *manzana.setKind(GOLDEN_DELICIOUS);
 
-function eat(manzana) { ... }
+function eat(manzana) {
+  ... GLOBAL = manzana ...
+}
 ```
 
 .jslogo[
@@ -394,7 +490,7 @@ function eat(manzana) { ... }
   manzana.set_kind(AppleKind::GoldenDelicious);
 }
 
-fn eat(manzana: Apple) { ... }
+function eat(manzana) { ... }
 ```
 
 ---
@@ -408,7 +504,7 @@ fn main() {
   manzana.set_kind(AppleKind::GoldenDelicious);
 }
 
-fn eat(manzana: Apple) { ... }
+function eat(manzana) { ... }
 ```
 
 ---
@@ -422,7 +518,7 @@ fn main() {
   manzana.set_kind(AppleKind::GoldenDelicious);
 }
 
-fn eat(manzana: Apple) { ... }
+function eat(manzana) { ... }
 ```
 
 ---
@@ -493,6 +589,27 @@ https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=a65d19a6
 
 ```go
 func foo() {
+* m := make(map[string]string)
+* m["Hello"] = "World"
+
+  // Once I send, I'm not supposed to go on using "m"...
+  channel <- m
+
+  // ...but nothing stops me
+  m["Hello"] = "Data Race"
+}
+```
+
+.gologo[
+<img src="content/images/Go-Logo_Black.svg" alt="Go logo" width="50px" height="50px">
+]
+
+---
+
+# Channels in Go
+
+```go
+func foo() {
   m := make(map[string]string)
   m["Hello"] = "World"
 
@@ -534,12 +651,25 @@ func foo() {
 # What happens in Rust?
 
 ```rust
-fn main() {                         impl<T> Channel<T> {           
-  let m = HashMap::new();             fn send(&mut self, data: T) {
-  m.insert("Hello", "World");           ...                        
-  channel.send(m);                    }                            
-  m.insert("Hello", "Data Race");   }                              
-}                                   
+fn main() {
+* let m = HashMap::new();
+* m.insert("Hello", "World");
+  channel.send(m);
+  m.insert("Hello", "Data Race");
+}
+```
+
+---
+
+# What happens in Rust?
+
+```rust
+fn main() {
+  let m = HashMap::new();
+  m.insert("Hello", "World");
+* channel.send(m);
+  m.insert("Hello", "Data Race");
+}
 ```
 
 ---
@@ -715,8 +845,8 @@ But often there is a **hidden assumption**.
 # The more things change...
 
 - Some things have not changed:
-  - systems programming
-  - safety
+  - uncompromised efficiency
+  - safety and correctness
   - a CoC and a culture that emphasized **curiosity and deep research**
 
 ---
@@ -725,8 +855,8 @@ But often there is a **hidden assumption**.
 
 Great ideas in the development of Rust:
 
-- adopting unique types (“ownership”) and references (“borrowing”)
-- adopting the trait system (“typeclasses”)
+- adopting the borrow checker (ownership and borrowing)
+- adopting the trait system
 - removing the runtime and garbage collector
 - adopting cargo
 - introducing the `Poll` trait (well, time will tell, but I think so)
