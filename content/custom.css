@@ -265,6 +265,14 @@ mark, .mark {
     font-size: 30px;
 }
 
+.wycatsdate img {
+    position: absolute;
+    top: 135px;
+    left: 430px;
+    width: 50px;
+    transform: rotate(45deg);
+}
+
 .line1 img {
     position: absolute;
     top: 120px;
@@ -293,6 +301,13 @@ mark, .mark {
     width: 50px;
 }
 
+.line5 img {
+    position: absolute;
+    top: 245px;
+    left: 10px;
+    width: 50px;
+}
+
 .line7 img {
     position: absolute;
     top: 290px;
@@ -300,10 +315,95 @@ mark, .mark {
     width: 50px;
 }
 
-.manzana-arrow img {
+.me {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.king img {
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+}
+
+.queen img {
+    position: absolute;
+    bottom: 50px;
+    right: 80px;
+}
+
+.lover_left img {
+    height: 275px;
+    position: absolute;
+    bottom: 10px;
+    left: 125px;
+}
+
+.lover_right img {
+    height: 275px;
+    position: absolute;
+    bottom: 10px;
+    right: 125px;
+}
+
+.lover_gift_left img {
+    height: 100px;
+    position: absolute;
+    bottom: 100px;
+    left: 325px;
+}
+
+.lover_left_center img {
+    height: 275px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-125%);
+}
+
+.lover_gift_right img {
+    height: 100px;
+    position: absolute;
+    bottom: 100px;
+    right: 325px;
+}
+
+.lover_right_center img {
+    height: 275px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(25%);
+}
+
+.lover_gift_center img {
+    height: 100px;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.regalo-arrow img {
     position: absolute;
     top: 260px;
     left: 170px;
+    width: 50px;
+    transform: rotate(45deg);
+}
+
+.crying_face p {
+    position: absolute;
+    right: 175px;
+    bottom: 125px;
+    font-size: 2.5em;
+}
+
+.vec-new img {
+    position: absolute;
+    top: 150px;
+    left: 150px;
     width: 50px;
     transform: rotate(45deg);
 }
@@ -370,6 +470,29 @@ mark, .mark {
     top: 50%;
     left: 50%;
     width: 700px;
+}
+
+.jlord {
+    font-family: Lora, Georgia, Baskerville, serif;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
 }
 
 .group { }

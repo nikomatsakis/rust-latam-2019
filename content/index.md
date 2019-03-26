@@ -2,11 +2,12 @@ class: center
 name: title
 count: false
 
-<img src="content/images/rust-logo-blk.svg" alt="Rust logo" width="250rem" height="auto">
+# What's **unique** about Rust?
 
-# What's *unique* about Rust?
-
-.grey[Nicholas Matsakis]
+.me[.grey[*by* **Nicholas Matsakis**]]
+.page-center[.eighty[![Rust Logo](content/images/rust-logo-512x512.png)]]
+.king[![Drawing of King](content/images/King.png)]
+.queen[![Drawing of Queen](content/images/Queen.png)]
 
 ---
 
@@ -70,6 +71,12 @@ enum Option<T> {
 
 .center[
 ![wycats loves Rust in 2013](content/images/tweet-wycats-loves-rust.png)
+]
+
+--
+
+.wycatsdate[
+![Arrow](content/images/Arrow.png)
 ]
 
 ---
@@ -466,12 +473,12 @@ name: every-language-lets-you-give
 # Every language lets you give
 
 ```js
-let manzana = new Apple();
-eat(manzana);
-manzana.setKind(GOLDEN_DELICIOUS);
+let regalo = new Gift();
+give(regalo);
+regalo.open();
 
-function eat(manzana) {
-  ... GLOBAL = manzana ...
+function give(regalo) {
+  ... MY_GIFT = regalo ...
 }
 ```
 
@@ -484,41 +491,95 @@ function eat(manzana) {
 
 template: every-language-lets-you-give
 
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
 .line1[
-![Arrow](content/images/Arrow.png)
+![Point at `let regalo`](content/images/Arrow.png)
 ]
-
-<img src="content/images/Apple1.svg"
-     alt="object diagram">
-
----
-
-template: every-language-lets-you-give
-
-.line2[
-![Arrow](content/images/Arrow.png)
-]
-
-<img src="content/images/Apple2.svg"
-     alt="object diagram">
-
----
-
-template: every-language-lets-you-give
-
-.line3[
-![Arrow](content/images/Arrow.png)
-]
-
-<img src="content/images/Apple3.svg"
-     alt="object diagram">
 
 --
 
-"Neither golden, nor delicious." <br>
-&mdash; My daughter, in one of my prouder parenting moments
+.lover_gift_left[
+![Gift](content/images/Gift.png)
+]
 
 ---
+
+template: every-language-lets-you-give
+
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
+.lover_gift_left[
+![Gift](content/images/Gift.png)
+]
+
+.line2[
+![Point at call to `eat`](content/images/Arrow.png)
+]
+
+--
+
+.lover_right[
+![Right Lover](content/images/Lovers-Boy.png)
+]
+
+---
+
+template: every-language-lets-you-give
+
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
+.lover_right[
+![Left Lover](content/images/Lovers-Boy.png)
+]
+
+.lover_gift_center[
+![Gift](content/images/Gift.png)
+]
+
+.line2[
+![Point at call to `eat`](content/images/Arrow.png)
+]
+
+---
+
+template: every-language-lets-you-give
+
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
+.lover_right[
+![Right Lover](content/images/Lovers-Boy.png)
+]
+
+.lover_gift_center[
+![Gift](content/images/Gift.png)
+]
+
+.line3[
+![Point at call to `open`](content/images/Arrow.png)
+]
+
+--
+
+.lover_gift_center[
+![Gift](content/images/Blueberry-Labeled.png)
+]
+
+--
+
+.lover_right[
+![Right Lover](content/images/Lovers-Boy-Sad.png)
+]
+
+imag---
 
 name: rust-lets-you-take-away
 
@@ -526,12 +587,12 @@ name: rust-lets-you-take-away
 
 ```rust
 fn main() {
-  let mut manzana = Apple::new();
-  eat(manzana);
-  manzana.set_kind(AppleKind::GoldenDelicious);
+  let regalo = Gift::new();
+  give(regalo);
+  regalo.open();
 }
 
-fn eat(manzana: Apple) { ... }
+fn give(regalo: Gift) { ... }
 ```
 
 ---
@@ -542,12 +603,24 @@ template: rust-lets-you-take-away
 .fourty[![Highlight the fn main](content/images/Arrow.png)]
 ]
 
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
 ---
 
 template: rust-lets-you-take-away
 
 .line2[
 .fourty[![Highlight the let mut](content/images/Arrow.png)]
+]
+
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
+.lover_gift_left[
+![Gift](content/images/Gift.png)
 ]
 
 ---
@@ -558,6 +631,20 @@ template: rust-lets-you-take-away
 .fourty[![Highlight the call to eat](content/images/Arrow.png)]
 ]
 
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
+.lover_gift_left[
+![Gift](content/images/Gift.png)
+]
+
+--
+
+.lover_right[
+![Left Lover](content/images/Lovers-Boy.png)
+]
+
 ---
 
 template: rust-lets-you-take-away
@@ -566,13 +653,76 @@ template: rust-lets-you-take-away
 .fourty[![Highlight the eat fn](content/images/Arrow.png)]
 ]
 
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
+.lover_gift_left[
+![Gift](content/images/Gift.png)
+]
+
+.lover_right[
+![Left Lover](content/images/Lovers-Boy.png)
+]
 
 ---
 
 template: rust-lets-you-take-away
 
-.manzana-arrow[
+.regalo-arrow[
+![Highlight the eat fn](content/images/Arrow.png)
+]
+
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
+.lover_gift_left[
+![Gift](content/images/Gift.png)
+]
+
+.lover_right[
+![Left Lover](content/images/Lovers-Boy.png)
+]
+
+---
+
+template: rust-lets-you-take-away
+
+.regalo-arrow[
 .fourty[![Highlight the eat fn](content/images/Arrow.png)]
+]
+
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
+.lover_gift_right[
+![Gift](content/images/Gift.png)
+]
+
+.lover_right[
+![Left Lover](content/images/Lovers-Boy.png)
+]
+
+---
+
+template: rust-lets-you-take-away
+
+.regalo-arrow[
+.fourty[![Highlight the eat fn](content/images/Arrow.png)]
+]
+
+.lover_left[
+![Left Lover](content/images/Lovers-Girl.png)
+]
+
+.lover_gift_right[
+![Gift](content/images/Gift.png)
+]
+
+.lover_right[
+![Left Lover](content/images/Lovers-Boy.png)
 ]
 
 ---
@@ -586,20 +736,18 @@ template: rust-lets-you-take-away
 --
 
 ```
-error[E0382]: borrow of moved value: 'manzana'
+error[E0382]: use of moved value: 'regalo'
+  --> src/main.rs:13:4
      |
-  16 |    eat(manzana);
-     |        ------- `value moved here`
-  17 |    manzana.set_kind(AppleKind::GoldenDelicious);
-     |    ^^^^^^^ `value borrowed here after move`
-     |
-     = note: move occurs because 'manzana' has type 'Apple',
-       which does not implement the 'Copy' trait
+  12 |    give(regalo);
+     |         ------ `value moved here`
+  13 |    regalo.open();
+     |    ^^^^^^ `value used here after move`
 ```
 
 <!--
 
-https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=a65d19a6acd754ee606ad9471405109d
+https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=4a87aac56936416fa95efa811266ce88
 
 -->
 
@@ -852,13 +1000,99 @@ template: puzzle
 ]
 
 .bottom-right[
-![Tweet asking for libs](content/images/tweet-libs-2.png)
+![Tweet asking for libs](content/images/tweet-libs-7.png)
 ]
 
 ---
 
-# Example from the standard library
+# Best in class
 
+.page-center[
+![Tweet about diesel](content/images/tweet-libs-diesel.jpg)
+]
+
+---
+
+name: entry
+
+# Example: the entry API
+
+```rust
+my_map
+  .entry(some_key)
+  .or_insert(Vec::new())
+  .push(element);
+```
+
+---
+
+template: entry
+
+.line1[
+![Arrow](content/images/Arrow.png)
+]
+
+- Given a hashmap `K -> Vec<V>`,
+
+---
+
+template: entry
+
+.line2[
+![Arrow](content/images/Arrow.png)
+]
+
+- Given a hashmap `K -> Vec<V>`,
+  - lookup the value for the key `K` (if any)
+
+---
+
+template: entry
+
+.line3[
+![Arrow](content/images/Arrow.png)
+]
+
+- Given a hashmap `K -> Vec<V>`,
+  - lookup the value for the key `K` (if any),
+  - insert an empty vector for `K` if nothing exists,
+
+---
+
+template: entry
+
+.vec-new[
+![Arrow](content/images/Arrow.png)
+]
+
+- Given a hashmap `K -> Vec<V>`,
+  - lookup the value for the key `K` (if any),
+  - insert an empty vector for `K` if nothing exists,
+
+---
+
+template: entry
+
+.line4[
+![Arrow](content/images/Arrow.png)
+]
+
+- Given a hashmap `K -> Vec<V>`,
+  - lookup the value for the key `K` (if any),
+  - insert an empty vector for `K` if nothing exists,
+  - push `element` onto the vector for `K`.
+
+---
+
+template: entry
+
+- Given a hashmap `K -> Vec<V>`,
+  - lookup the value for the key `K` (if any),
+  - insert an empty vector for `K` if nothing exists,
+  - push `element` onto the vector for `K`.
+- **Ergonomic, yes.** But also:
+  - **Efficient:** reuse hash, internal indices from first lookup.
+  - **Robust:** `entry` borrows the map, so you can't intermix multiple insertions.
 
 ---
 
@@ -888,32 +1122,38 @@ template: puzzle
 
 ---
 
-# Beyond tradeoffs
+.page-center[
+> .jlord[The value of common knowledge cannot be overestimated. We must to do better. **We need all the ideas from all the people.** That's what we should be aiming for.] <br>
+> <br>
+> &mdash; Jessica Lord, "Privilege, Community and Open Source"
+]
 
-Easy to conclude there is an **essential tradeoff**.
-  
---
-
-But often there is a **hidden assumption**.
+.citation[`http://jlord.us/blog/osos-talk.html`]
 
 ---
 
-# Rust has evolved
+name: morethingschange
+
+# The more things change...
 
 - When I started on Rust in 2011, it had:
   - a runtime with built-in threads
   - a lot of concepts and a lot of unusual syntax
     - (`++x: ~option::t<string::t>`)
-  - a **garbage collector 😱** 
-  
+  - a **garbage collector 😱** (and not a good one) 
+{{content}}
+
 ---
 
-# The more things change...
+template: morethingschange
 
 - Some things have not changed:
   - uncompromised efficiency
   - safety and correctness
   - a CoC and a culture that emphasized **curiosity and deep research**
+
+---
+
 
 ---
 
@@ -941,9 +1181,31 @@ None were obvious at the time.
 
 ---
 
-# Beyond the language
+# Rust is not (just) the result of coders
 
-It takes more than
+> .jlord[We need an open source for **designers** (who make documentation easier to read and give an identity to a project), **journalists and scientists** (who share their data), **polyglots** (who make projects accessible to not just those who speak English), **note takers and editors** (who can make resources and documentation better), **organizers** (who can triage the many issues created in open source projects), **mappers and data wranglers** and ...] <br>
+> <br>
+> &mdash; Jessica Lord (emphasis mine)
+
+.citation[`http://jlord.us/blog/osos-talk.html`]
+
+---
+
+# Speaking of which...
+
+.page-center[
+![Please clap!](content/images/please-clap.png)
+]
+
+<!--
+https://twitter.com/ag_dubs/status/1053726412207722502
+-->
+
+---
+
+# What's next for Rust?
+
+
 
 ---
 
