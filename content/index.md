@@ -120,7 +120,7 @@ Rust -- definitely a mutually beneficial relationship.
 ![Bodil tweets that Rust is a game changer](content/images/tweet-Bodil-game-changer.png)
 ]
 
-.peoplelike4[
+.peoplelike-hearts[
 ![hearts](content/images/Lovers-Hearts.png)
 ]
 
@@ -811,13 +811,70 @@ template: puzzle
 
 # Best in class
 
+.page-center[
+![Tweet asking for libs](content/images/tweet-libs-call.png)
+]
+
 ---
 
-# Beyond the code
+# Best in class
 
-???
+.top-left[
+![Tweet asking for libs](content/images/tweet-libs-1.png)
+]
 
-Thus far in this talk I’ve focused on the design of Rust itself. But any real answer to the question of “what makes Rust unique” has to look past that.
+.top-right[
+![Tweet asking for libs](content/images/tweet-libs-rayon.png)
+]
+
+.bottom-left[
+![Tweet asking for libs](content/images/tweet-libs-serde.png)
+]
+
+.bottom-right[
+![Tweet asking for libs](content/images/tweet-libs-clap.png)
+]
+
+---
+
+# Best in class
+
+.top-left[
+![Tweet asking for libs](content/images/tweet-libs-5.png)
+]
+
+.top-right[
+![Tweet asking for libs](content/images/tweet-libs-specs.png)
+]
+
+.bottom-left[
+![Tweet asking for libs](content/images/tweet-libs-curve25519.png)
+]
+
+.bottom-right[
+![Tweet asking for libs](content/images/tweet-libs-2.png)
+]
+
+---
+
+# Example from the standard library
+
+
+---
+
+template: puzzle
+
+.zca[Zero-cost abstractions]
+
+.modern-conveniences[Modern conveniences]
+
+.ownership-and-borrowing[Ownership and Borrowing]
+
+.craftsmanship[Sense of **craftsmanship**]
+
+--
+
+.community[**Community**]
 
 ---
 

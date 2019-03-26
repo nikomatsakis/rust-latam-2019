@@ -258,6 +258,13 @@ mark, .mark {
     color: #FFFFFF;
 }
 
+.community {
+    position: absolute;
+    left: 37%;
+    top: 42%;
+    font-size: 30px;
+}
+
 .line1 img {
     position: absolute;
     top: 120px;
@@ -330,11 +337,39 @@ mark, .mark {
     width: 50%
 }
 
-.peoplelike4 img {
+.peoplelike-hearts img {
     position: absolute;
     top: 5%;
     left: 55%;
     width: 35%
+}
+
+.top-left img {
+    position: absolute;
+    top: 15%;
+    left: 0%;
+    width: 700px;
+}
+
+.top-right img {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    width: 700px;
+}
+
+.bottom-left img {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 700px;
+}
+
+.bottom-right img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700px;
 }
 
 .group { }
