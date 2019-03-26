@@ -579,7 +579,7 @@ template: every-language-lets-you-give
 ![Right Lover](content/images/Lovers-Boy-Sad.png)
 ]
 
-imag---
+---
 
 name: rust-lets-you-take-away
 
