@@ -581,6 +581,61 @@ template: every-language-lets-you-give
 
 ---
 
+name: oversharing
+# Oversharing
+
+```java
+Applet applet = new Applet();
+Vector names = new Vector();
+names.add("Harry Potter");
+applet.setAccessControlList(names);
+names.add("Voldemort");
+```
+
+---
+
+template: oversharing
+
+.line4[
+![Point at call to `setAccessControlList`](content/images/Arrow.png)
+]
+
+- `setAccessControlList` also checked that the list is reasonable
+
+---
+
+template: oversharing
+
+.line5[
+![Point at call to `setAccessControlList`](content/images/Arrow.png)
+]
+
+
+- `setAccessControlList` also checked that the list is reasonable
+- Uh oh!
+
+---
+
+# What went wrong?
+
+.lover_right[
+![Right Lover](content/images/Lovers-Boy-Sad.png)
+]
+
+Two ingredients:
+
+- Mutation
+- Sharing
+
+--
+
+Rust's solution:
+
+- Support sharing and mutation
+  - but **not at the same time**
+
+---
+
 name: rust-lets-you-take-away
 
 # Rust lets you take away
@@ -936,6 +991,113 @@ vtell them that I don't remember the last time I debugged a crash.
 
 ---
 
+name: seq-iter
+
+# Sequential iterators
+
+```rust
+fn load_images(paths: &[PathBuf]) -> Vec<Image> {
+  paths
+    .iter()
+    .map(|path| Image::load(path))
+    .collect()
+}
+```
+
+---
+
+template: seq-iter
+
+.line1[![Point at `paths`](content/images/Arrow.png)]
+
+---
+
+template: seq-iter
+
+.line3[![Point at `iter`](content/images/Arrow.png)]
+
+- Create an iterator over paths
+
+---
+
+template: seq-iter
+
+.line4[![Point at `iter`](content/images/Arrow.png)]
+
+- Create an iterator over paths
+- For each path, invoke `Image::load`
+
+---
+
+template: seq-iter
+
+.line5[![Point at `iter`](content/images/Arrow.png)]
+
+- Create an iterator over paths
+- For each path, invoke `Image::load`
+- Collect loaded images into a vector
+
+---
+
+name: rayon
+
+# Parallel iterators
+
+```rust
+fn load_images(paths: &[PathBuf]) -> Vec<Image> {
+  paths
+    .par_iter()
+    .map(|path| Image::load(path))
+    .collect()
+}
+```
+
+.line3[![Point at `par_iter`](content/images/Arrow.png)]
+
+- One change to execute in parallel
+
+---
+
+name: rayon-race
+
+# Parallel iterators
+
+```rust
+fn load_images(paths: &[PathBuf]) -> Vec<Image> {
+  let mut jpegs = 0;
+  paths
+    .par_iter()
+    .map(|path| {
+      if path.ends_with(".jpg") {
+        jpegs += 1;
+      }
+      Image::load(path)
+    })
+    .collect()
+}
+```
+
+---
+
+template: rayon-race
+
+.line2[![Point at `jpegs`'](content/images/Arrow.png)]
+
+---
+
+template: rayon-race
+
+.line7b[![Point at `jpegs`'](content/images/Arrow.png)]
+
+---
+
+.center[![saved by the compiler](content/images/saved-by-compiler.png)]
+
+> **The Rust compiler just saved me from a nasty threading bug.** I was working on cage (our open source development tool for Docker apps with lots of microservices), and I decided to parallelize the routine that transformed docker-compose.yml files. This was mostly an excuse to check out the awesome rayon library, but it turned into a great example of what real-world Rust development is like.
+
+.citation[`https://blog.faraday.io/saved-by-the-compiler-parallelizing-a-loop-with-rust-and-rayon/`]
+---
+
 template: puzzle
 
 .zca[Zero-cost abstractions]
@@ -962,6 +1124,8 @@ template: puzzle
 .page-center[
 ![Tweet asking for libs](content/images/tweet-libs-call.png)
 ]
+
+.citation[`https://twitter.com/nikomatsakis/status/1110166084496310272`]
 
 ---
 
@@ -1122,24 +1286,15 @@ template: puzzle
 
 ---
 
-.page-center[
-> .jlord[The value of common knowledge cannot be overestimated. We must to do better. **We need all the ideas from all the people.** That's what we should be aiming for.] <br>
-> <br>
-> &mdash; Jessica Lord, "Privilege, Community and Open Source"
-]
-
-.citation[`http://jlord.us/blog/osos-talk.html`]
-
----
-
 name: morethingschange
 
 # The more things change...
 
 - When I started on Rust in 2011, it had:
-  - a runtime with built-in threads
+  - no borrow-checker
   - a lot of concepts and a lot of unusual syntax
     - (`++x: ~option::t<string::t>`)
+  - a runtime with built-in threads
   - a **garbage collector 😱** (and not a good one) 
 {{content}}
 
@@ -1150,10 +1305,7 @@ template: morethingschange
 - Some things have not changed:
   - uncompromised efficiency
   - safety and correctness
-  - a CoC and a culture that emphasized **curiosity and deep research**
-
----
-
+  - a CoC and a culture that emphasizes **curiosity and deep research**
 
 ---
 
@@ -1181,6 +1333,16 @@ None were obvious at the time.
 
 ---
 
+.page-center[
+> .jlord[The value of common knowledge cannot be overestimated. We must to do better. **We need all the ideas from all the people.** That's what we should be aiming for.] <br>
+> <br>
+> &mdash; Jessica Lord, "Privilege, Community and Open Source"
+]
+
+.citation[`http://jlord.us/blog/osos-talk.html`]
+
+---
+
 # Rust is not (just) the result of coders
 
 > .jlord[We need an open source for **designers** (who make documentation easier to read and give an identity to a project), **journalists and scientists** (who share their data), **polyglots** (who make projects accessible to not just those who speak English), **note takers and editors** (who can make resources and documentation better), **organizers** (who can triage the many issues created in open source projects), **mappers and data wranglers** and ...] <br>
@@ -1205,17 +1367,18 @@ https://twitter.com/ag_dubs/status/1053726412207722502
 
 # What's next for Rust?
 
+Step 1: Recognize what we've done
 
+--
+
+Step 2: Recognize how much further we have to go
 
 ---
 
-class: center
-name: title
-count: false
+# Organizing for the long haul
 
-<img src="content/images/rust-logo-blk.svg" alt="Rust logo" width="250rem" height="auto">
+---
 
-# Thanks
+# Thanks for listening
 
-.grey[Twitter/Github: spastorino]<br/>
-.grey[Email: spastorino@gmail.com]
+![Prince and princess](content/images/Prince-and-princess.png)

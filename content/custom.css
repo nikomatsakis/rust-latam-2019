@@ -315,6 +315,13 @@ mark, .mark {
     width: 50px;
 }
 
+.line7b img {
+    position: absolute;
+    top: 300px;
+    left: 10px;
+    width: 50px;
+}
+
 .me {
     position: absolute;
     bottom: 10px;
