@@ -708,11 +708,8 @@ impl<T> Channel<T> {
 template: rust-lets-you-take-away-2
 
 .line1r[![Highlight the eat fn](content/images/Arrow.png)]
-
 .lover-gift-left[![Gift](content/images/Gift.png)]
-
 .lover-left[![Person on the left](content/images/Lovers-Girl.png)]
-
 .lover-right[![Person on the right](content/images/Lovers-Boy.png)]
 
 ---
