@@ -177,7 +177,7 @@ Is it... &#10024; **systems programming** &#10024;?
   - inline memory layout
   - static dispatch
   - no garbage collector or other runtime
-- Anywhere you use C, you can use Rust: 
+- Anywhere you use C, you can use Rust:
   - Want to write a plugin for Python or Ruby? You can do it in Rust.
   - Want to write a **kernel**? You can do it in Rust.
 
@@ -472,36 +472,45 @@ name: every-language-lets-you-give
 
 # Every language lets you give
 
-```js
-let regalo = new Gift();
-give(regalo);
-regalo.open();
-
-function give(regalo) {
-  ... MY_GIFT = regalo ...
+```go
+func foo() {
+  regalo := Gift { .. }
+  channel <- regalo
+  regalo.open();
 }
 ```
 
-.jslogo[
-<img src="content/images/js-logo.svg" alt="JS logo" >
+.gologo[
+<img src="content/images/Go-Logo_Black.svg" alt="Go logo" width="50px" height="50px">
 ]
-
 
 ---
 
 template: every-language-lets-you-give
 
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
+.lover-left[
+![Person on the left](content/images/Lovers-Girl.png)
 ]
 
 .line1[
-![Point at `let regalo`](content/images/Arrow.png)
+![Point at `func foo`](content/images/Arrow.png)
+]
+
+---
+
+template: every-language-lets-you-give
+
+.lover-left[
+![Person on the left](content/images/Lovers-Girl.png)
+]
+
+.line2[
+![Point at `Gift { }`](content/images/Arrow.png)
 ]
 
 --
 
-.lover_gift_left[
+.lover-gift-left[
 ![Gift](content/images/Gift.png)
 ]
 
@@ -509,117 +518,114 @@ template: every-language-lets-you-give
 
 template: every-language-lets-you-give
 
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
-]
-
-.lover_gift_left[
-![Gift](content/images/Gift.png)
-]
-
-.line2[
-![Point at call to `eat`](content/images/Arrow.png)
-]
-
---
-
-.lover_right[
-![Right Lover](content/images/Lovers-Boy.png)
-]
-
----
-
-template: every-language-lets-you-give
-
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
-]
-
-.lover_right[
-![Left Lover](content/images/Lovers-Boy.png)
-]
-
-.lover_gift_center[
-![Gift](content/images/Gift.png)
-]
-
-.line2[
-![Point at call to `eat`](content/images/Arrow.png)
-]
-
----
-
-template: every-language-lets-you-give
-
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
-]
-
-.lover_right[
-![Right Lover](content/images/Lovers-Boy.png)
-]
-
-.lover_gift_center[
-![Gift](content/images/Gift.png)
+.lover-left[
+![Person on the left](content/images/Lovers-Girl.png)
 ]
 
 .line3[
-![Point at call to `open`](content/images/Arrow.png)
+![Point at `channel <- regalo`](content/images/Arrow.png)
+]
+
+.lover-gift-left[
+![Gift](content/images/Gift.png)
 ]
 
 --
 
-.lover_gift_center[
+.lover-right[
+![Person on the right](content/images/Lovers-Boy.png)
+]
+
+---
+
+template: every-language-lets-you-give
+
+.lover-left[
+![Person on the left](content/images/Lovers-Girl.png)
+]
+
+.line3[
+![Point at `channel <- regalo`](content/images/Arrow.png)
+]
+
+.lover-gift-center[
+![Gift](content/images/Gift.png)
+]
+
+.lover-right[
+![Person on the right](content/images/Lovers-Boy.png)
+]
+
+---
+
+template: every-language-lets-you-give
+
+.lover-left[
+![Person on the left](content/images/Lovers-Girl.png)
+]
+
+.lover-right[
+![Person on the left](content/images/Lovers-Boy.png)
+]
+
+.lover-gift-center[
+![Gift](content/images/Gift.png)
+]
+
+.line4[
+![Point at `regalo.open`](content/images/Arrow.png)
+]
+
+--
+
+.lover-gift-center[
 ![Gift](content/images/Blueberry-Labeled.png)
 ]
 
+---
+
+template: every-language-lets-you-give
+
+.lover-left[
+![Person on the left](content/images/Lovers-Girl.png)
+]
+
+.lover-right[
+![Person on the left](content/images/Lovers-Boy.png)
+]
+
+.lover-gift-center[
+![Gift](content/images/Blueberry-Labeled.png)
+]
+
+.col-right[
+```go
+// The other goroutine
+presente := <- channel
+presente.open()
+```
+]
+
+.line3r[
+![Point at `regalo.open`](content/images/Arrow.png)
+]
+
+.lover-right[
+![Person on the right](content/images/Lovers-Boy.png)
+]
+
 --
 
-.lover_right[
-![Right Lover](content/images/Lovers-Boy-Sad.png)
+.lover-right[
+![Person on the right](content/images/Lovers-Boy-Sad.png)
 ]
-
----
-
-name: oversharing
-# Oversharing
-
-```java
-Applet applet = new Applet();
-Vector names = new Vector();
-names.add("Harry Potter");
-applet.setAccessControlList(names);
-names.add("Voldemort");
-```
-
----
-
-template: oversharing
-
-.line4[
-![Point at call to `setAccessControlList`](content/images/Arrow.png)
-]
-
-- `setAccessControlList` also checked that the list is reasonable
-
----
-
-template: oversharing
-
-.line5[
-![Point at call to `setAccessControlList`](content/images/Arrow.png)
-]
-
-
-- `setAccessControlList` also checked that the list is reasonable
-- Uh oh!
 
 ---
 
 # What went wrong?
 
-.lover_right[
-![Right Lover](content/images/Lovers-Boy-Sad.png)
+.lover-right[
+![Person on the right](content/images/Lovers-Boy-Sad.png)
 ]
 
 Two ingredients:
@@ -643,40 +649,28 @@ name: rust-lets-you-take-away
 ```rust
 fn main() {
   let regalo = Gift::new();
-  give(regalo);
+  channel.send(regalo);
   regalo.open();
 }
-
-fn give(regalo: Gift) { ... }
 ```
 
 ---
 
 template: rust-lets-you-take-away
 
-.line1[
-.fourty[![Highlight the fn main](content/images/Arrow.png)]
-]
+.line1[![Highlight `fn main`](content/images/Arrow.png)]
 
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
-]
+.lover-left[![Person on the left](content/images/Lovers-Girl.png)]
 
 ---
 
 template: rust-lets-you-take-away
 
-.line2[
-.fourty[![Highlight the let mut](content/images/Arrow.png)]
-]
+.line2[![Highlight `let regalo`](content/images/Arrow.png)]
 
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
-]
+.lover-left[![Person on the left](content/images/Lovers-Girl.png)]
 
-.lover_gift_left[
-![Gift](content/images/Gift.png)
-]
+.lover-gift-left[![Gift](content/images/Gift.png)]
 
 ---
 
@@ -686,116 +680,96 @@ template: rust-lets-you-take-away
 .fourty[![Highlight the call to eat](content/images/Arrow.png)]
 ]
 
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
+.lover-left[
+![Person on the left](content/images/Lovers-Girl.png)
 ]
 
-.lover_gift_left[
+.lover-gift-left[
 ![Gift](content/images/Gift.png)
 ]
 
---
+---
 
-.lover_right[
-![Left Lover](content/images/Lovers-Boy.png)
+name: rust-lets-you-take-away-2
+template: rust-lets-you-take-away
+
+.col-right[
+```rust
+impl<T> Channel<T> {
+  fn send(&mut self, data: T) {
+    ...
+  }
+}
+```
 ]
+
+---
+
+template: rust-lets-you-take-away-2
+
+.line1r[![Highlight the eat fn](content/images/Arrow.png)]
+
+.lover-gift-left[![Gift](content/images/Gift.png)]
+
+.lover-left[![Person on the left](content/images/Lovers-Girl.png)]
+
+.lover-right[![Person on the right](content/images/Lovers-Boy.png)]
+
+---
+
+template: rust-lets-you-take-away-2
+
+.line1-impl[![Highlight `impl`](content/images/Arrow.png)]
+.lover-gift-left[![Gift](content/images/Gift.png)]
+.lover-left[![Person on the left](content/images/Lovers-Girl.png)]
+.lover-right[![Person on the right](content/images/Lovers-Boy.png)]
+
+---
+
+template: rust-lets-you-take-away-2
+
+.line1-generics[![Highlight `<T>`](content/images/Arrow.png)]
+.lover-gift-left[![Gift](content/images/Gift.png)]
+.lover-left[![Person on the left](content/images/Lovers-Girl.png)]
+.lover-right[![Person on the right](content/images/Lovers-Boy.png)]
+
+---
+
+template: rust-lets-you-take-away-2
+
+.line2-data[![Highlight `data: T`](content/images/Arrow.png)]
+.lover-gift-left[![Gift](content/images/Gift.png)]
+.lover-left[![Person on the left](content/images/Lovers-Girl.png)]
+.lover-right[![Person on the right](content/images/Lovers-Boy.png)]
+
+---
+
+template: rust-lets-you-take-away-2
+
+.line2-data[![Highlight `data: T`](content/images/Arrow.png)]
+.lover-gift-right[![Gift](content/images/Gift.png)]
+.lover-left[![Person on the left](content/images/Lovers-Girl.png)]
+.lover-right[![Person on the right](content/images/Lovers-Boy.png)]
 
 ---
 
 template: rust-lets-you-take-away
 
-.line7[
-.fourty[![Highlight the eat fn](content/images/Arrow.png)]
-]
-
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
-]
-
-.lover_gift_left[
-![Gift](content/images/Gift.png)
-]
-
-.lover_right[
-![Left Lover](content/images/Lovers-Boy.png)
-]
+.line4[![Highlight `regalo.open`](content/images/Arrow.png)]
+.lover-left[![Person on the left](content/images/Lovers-Girl.png)]
 
 ---
 
 template: rust-lets-you-take-away
 
-.regalo-arrow[
-![Highlight the eat fn](content/images/Arrow.png)
-]
-
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
-]
-
-.lover_gift_left[
-![Gift](content/images/Gift.png)
-]
-
-.lover_right[
-![Left Lover](content/images/Lovers-Boy.png)
-]
-
----
-
-template: rust-lets-you-take-away
-
-.regalo-arrow[
-.fourty[![Highlight the eat fn](content/images/Arrow.png)]
-]
-
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
-]
-
-.lover_gift_right[
-![Gift](content/images/Gift.png)
-]
-
-.lover_right[
-![Left Lover](content/images/Lovers-Boy.png)
-]
-
----
-
-template: rust-lets-you-take-away
-
-.regalo-arrow[
-.fourty[![Highlight the eat fn](content/images/Arrow.png)]
-]
-
-.lover_left[
-![Left Lover](content/images/Lovers-Girl.png)
-]
-
-.lover_gift_right[
-![Gift](content/images/Gift.png)
-]
-
-.lover_right[
-![Left Lover](content/images/Lovers-Boy.png)
-]
-
----
-
-template: rust-lets-you-take-away
-
-.line4[
-![Highlight the `set_kind` call](content/images/Arrow.png)
-]
-
---
+.line4[![Highlight `regalo.open`](content/images/Arrow.png)]
 
 ```
 error[E0382]: use of moved value: 'regalo'
   --> src/main.rs:13:4
      |
-  12 |    give(regalo);
-     |         ------ `value moved here`
+  12 |    channel.send(regalo)
+     |                 ------ `value moved here`
   13 |    regalo.open();
      |    ^^^^^^ `value used here after move`
 ```
@@ -805,165 +779,6 @@ error[E0382]: use of moved value: 'regalo'
 https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=4a87aac56936416fa95efa811266ce88
 
 -->
-
----
-
-# Channels in Go
-
-```go
-func foo() {
-* m := make(map[string]string)
-* m["Hello"] = "World"
-
-  // Once I send, I'm not supposed to go on using "m"...
-  channel <- m
-
-  // ...but nothing stops me
-  m["Hello"] = "Data Race"
-}
-```
-
-.gologo[
-<img src="content/images/Go-Logo_Black.svg" alt="Go logo" width="50px" height="50px">
-]
-
----
-
-# Channels in Go
-
-```go
-func foo() {
-  m := make(map[string]string)
-  m["Hello"] = "World"
-
-* // Once I send, I'm not supposed to go on using "m"...
-* channel <- m
-
-  // ...but nothing stops me
-  m["Hello"] = "Data Race"
-}
-```
-
-.gologo[
-<img src="content/images/Go-Logo_Black.svg" alt="Go logo" width="50px" height="50px">
-]
-
----
-
-# Channels in Go
-
-```go
-func foo() {
-  m := make(map[string]string)
-  m["Hello"] = "World"
-
-  // Once I send, I'm not supposed to go on using "m"...
-  channel <- m
-
-* // ...but nothing stops me
-* m["Hello"] = "Data Race"
-}
-```
-
-.gologo[
-<img src="content/images/Go-Logo_Black.svg" alt="Go logo">
-]
-
----
-
-# What happens in Rust?
-
-```rust
-fn main() {
-* let m = HashMap::new();
-* m.insert("Hello", "World");
-  channel.send(m);
-  m.insert("Hello", "Data Race");
-}
-```
-
----
-
-# What happens in Rust?
-
-```rust
-fn main() {
-  let m = HashMap::new();
-  m.insert("Hello", "World");
-* channel.send(m);
-  m.insert("Hello", "Data Race");
-}
-```
-
----
-
-# What happens in Rust?
-
-```rust
-fn main() {                         `impl<T> Channel<T> {`           
-  let m = HashMap::new();             fn send(&mut self, data: T) {
-  m.insert("Hello", "World");           ...                        
-  channel.send(m);                    }                            
-  m.insert("Hello", "Data Race");   }                              
-}                                   
-```
-
----
-
-# What happens in Rust?
-
-```rust
-fn main() {                         impl<T> Channel<T> {           
-  let m = HashMap::new();             fn send(&mut self, `data: T`) {
-  m.insert("Hello", "World");           ...                        
-  channel.send(m);                    }                            
-  m.insert("Hello", "Data Race");   }                              
-}                                   
-```
-
---
-
-When you send data, the channel **takes ownership** of the data.
-
----
-
-# What happens in Rust?
-
-```rust
-fn main() {                         impl<T> Channel<T> {           
-  let m = HashMap::new();             fn send(&mut self, data: T) {
-  m.insert("Hello", "World");           ...                        
-  `channel.send(m);`                    }                            
-  m.insert("Hello", "Data Race");   }                              
-}                                   
-```
-
-When you send data, the channel **takes ownership** of the data.
-
---
-
-That means the caller is **giving ownership away**.
-
----
-
-# What happens in Rust?
-
-```rust
-fn main() {                         impl<T> Channel<T> {           
-  let m = HashMap::new();             fn send(&mut self, data: T) {
-  m.insert("Hello", "World");           ...                        
-  channel.send(m);                    }                            
-  `m.insert("Hello", "Data Race");`   }                              
-}                                   
-```
-
-When you send data, the channel **takes ownership** of the data.
-
-That means the caller is **giving ownership away**.
-
---
-
-So we get a **compilation error** when we try to use it later.
 
 ---
 
@@ -982,7 +797,7 @@ This is a big deal, especially when you are working
 with systems programs. The usual way of learning C++ was
 to write your code, have it crash a few dozen times until
 you finally grokked the unwritten rules, and then let it run,
-then realize 
+then realize
 
 Tell story about me finally understanding what memory leaks are?
 
@@ -1295,7 +1110,7 @@ name: morethingschange
   - a lot of concepts and a lot of unusual syntax
     - (`++x: ~option::t<string::t>`)
   - a runtime with built-in threads
-  - a **garbage collector 😱** (and not a good one) 
+  - a **garbage collector 😱** (and not a good one)
 {{content}}
 
 ---

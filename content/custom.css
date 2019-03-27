@@ -225,7 +225,7 @@ mark, .mark {
 .gologo img {
     position: absolute;
     right: 50px;
-    top: 310px;
+    top: 180px;
     width: 150px;
     height: 150px;
 }
@@ -280,6 +280,30 @@ mark, .mark {
     width: 50px;
 }
 
+.line1r img {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    width: 50px;
+    transform: translateX(-100%);
+}
+
+.line1-impl img {
+    position: absolute;
+    top: 100px;
+    left: 425px;
+    width: 50px;
+    transform: rotate(45deg);
+}
+
+.line1-generics img {
+    position: absolute;
+    top: 100px;
+    left: 575px;
+    width: 50px;
+    transform: rotate(45deg);
+}
+
 .line2 img {
     position: absolute;
     top: 152px;
@@ -287,11 +311,47 @@ mark, .mark {
     width: 50px;
 }
 
+.line2r img {
+    position: absolute;
+    top: 152px;
+    left: 50%;
+    width: 50px;
+    transform: translateX(-100%);
+}
+
+.line2-data img {
+    position: absolute;
+    top: 125px;
+    left: 675px;
+    width: 50px;
+    transform: rotate(45deg);
+}
+
+.annotate-data {
+    position: absolute;
+    top: 200px;
+    left: 600px;
+}
+
+.annotate-send {
+    position: absolute;
+    top: 200px;
+    left: 400px;
+}
+
 .line3 img {
     position: absolute;
     top: 183px;
     left: 10px;
     width: 50px;
+}
+
+.line3r img {
+    position: absolute;
+    top: 183px;
+    left: 50%;
+    width: 50px;
+    transform: translateX(-100%);
 }
 
 .line4 img {
@@ -308,18 +368,10 @@ mark, .mark {
     width: 50px;
 }
 
-.line7 img {
+.col-right {
     position: absolute;
-    top: 290px;
-    left: 10px;
-    width: 50px;
-}
-
-.line7b img {
-    position: absolute;
-    top: 300px;
-    left: 10px;
-    width: 50px;
+    top: 110px;
+    left: 50%;
 }
 
 .me {
@@ -340,28 +392,28 @@ mark, .mark {
     right: 80px;
 }
 
-.lover_left img {
+.lover-left img {
     height: 275px;
     position: absolute;
     bottom: 10px;
     left: 125px;
 }
 
-.lover_right img {
+.lover-right img {
     height: 275px;
     position: absolute;
     bottom: 10px;
     right: 125px;
 }
 
-.lover_gift_left img {
+.lover-gift-left img {
     height: 100px;
     position: absolute;
     bottom: 100px;
     left: 325px;
 }
 
-.lover_left_center img {
+.lover-left-center img {
     height: 275px;
     position: absolute;
     bottom: 10px;
@@ -369,14 +421,14 @@ mark, .mark {
     transform: translateX(-125%);
 }
 
-.lover_gift_right img {
+.lover-gift-right img {
     height: 100px;
     position: absolute;
     bottom: 100px;
     right: 325px;
 }
 
-.lover_right_center img {
+.lover-right-center img {
     height: 275px;
     position: absolute;
     bottom: 10px;
@@ -384,7 +436,7 @@ mark, .mark {
     transform: translateX(25%);
 }
 
-.lover_gift_center img {
+.lover-gift-center img {
     height: 100px;
     position: absolute;
     bottom: 100px;
