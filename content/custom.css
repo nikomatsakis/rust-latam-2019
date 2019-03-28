@@ -94,6 +94,28 @@ td pre {
   -webkit-margin-before: 0.5em;
   -webkit-margin-after: 0.5em;
 }
+
+.bugzilla-arrow {
+    position: absolute;
+    top: 180px;
+    left: 450px;
+    width: 50px;
+    transform: rotate(45deg);
+}
+
+.bugzilla1 {
+    color: #666;
+    font-size: 70px;
+    font-family: "Fira Sans", "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.bugzilla2 {
+    color: #000;
+    font-size: 70px;
+    font-family: "Fira Sans", "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+
 @page {
   size: 908px 681px;
   margin: 0;
@@ -198,16 +220,25 @@ mark, .mark {
     font-size: 0.5em;
 }
 
-.eighty img {
+.p80 img {
     width: 80%;
 }
 
-.sixty img {
+.p60 img {
     width: 60%;
 }
 
-.forty img {
+.p50 img {
+    width: 50%;
+}
+
+.p40 img {
     width: 40%;
+}
+
+.p100 img {
+    width: 100%;
+    height: auto;
 }
 
 .white-text {
@@ -271,6 +302,14 @@ mark, .mark {
     left: 430px;
     width: 50px;
     transform: rotate(45deg);
+}
+
+.one-dot-oh img {
+    position: absolute;
+    bottom: 150px;
+    left: 180px;
+    width: 50px;
+    transform: rotate(90deg);
 }
 
 .line1 img {
@@ -354,6 +393,14 @@ mark, .mark {
     transform: translateX(-100%);
 }
 
+.line3-regalo img {
+    position: absolute;
+    top: 220px;
+    left: 220px;
+    width: 50px;
+    transform: rotate(270deg);
+}
+
 .line4 img {
     position: absolute;
     top: 212px;
@@ -364,6 +411,13 @@ mark, .mark {
 .line5 img {
     position: absolute;
     top: 245px;
+    left: 10px;
+    width: 50px;
+}
+
+.line7 img {
+    position: absolute;
+    top: 300px;
     left: 10px;
     width: 50px;
 }

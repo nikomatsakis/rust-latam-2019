@@ -5,7 +5,7 @@ count: false
 # What's **unique** about Rust?
 
 .me[.grey[*by* **Nicholas Matsakis**]]
-.page-center[.eighty[![Rust Logo](content/images/rust-logo-512x512.png)]]
+.page-center[.p80[![Rust Logo](content/images/rust-logo-512x512.png)]]
 .king[![Drawing of King](content/images/King.png)]
 .queen[![Drawing of Queen](content/images/Queen.png)]
 
@@ -63,34 +63,27 @@ enum Option<T> {
 
 <img src="content/images/total-crates-over-time.svg" alt="Total crates over time" width="1000rem" height="auto">
 
+--
+
+.one-dot-oh[![Arrow](content/images/Arrow.png)]
+
 ---
 
 # People are using Rust in production
 
 --
 
-.center[
-![wycats loves Rust in 2013](content/images/tweet-wycats-loves-rust.png)
-]
+.center[![wycats loves Rust in 2013](content/images/tweet-wycats-loves-rust.png)]
 
 --
 
-.wycatsdate[
-![Arrow](content/images/Arrow.png)
-]
+.wycatsdate[![Arrow](content/images/Arrow.png)]
 
 ---
 
 # People are using Rust in production
 
 .center[<img src="content/images/what.gif" alt="What." width="100%" height="auto">]
-
-???
-
-Actually, the first Rust production user was Tilde, way before 1.0.
-Too which my reaction was roughly...actually, it's quite interesting.
-Tilde putting Rust into production is what brought Yehuda Katz into
-Rust -- definitely a mutually beneficial relationship.
 
 ---
 
@@ -166,20 +159,7 @@ Is it... &#10024; **systems programming** &#10024;?
 
 --
 
-"Programming where **resources are limited**" <br>
-&mdash; Bjarne Stroustroup, paraphrased, Lang.NEXT 2014
-
----
-
-# Qualities Rust shares with C(++)
-
-- Low-level control, highly optimizable:
-  - inline memory layout
-  - static dispatch
-  - no garbage collector or other runtime
-- Anywhere you use C, you can use Rust:
-  - Want to write a plugin for Python or Ruby? You can do it in Rust.
-  - Want to write a **kernel**? You can do it in Rust.
+.center[.p60[![Wiley running fast](content/images/wiley-running.gif)]]
 
 ---
 
@@ -192,6 +172,26 @@ name: puzzle
 template: puzzle
 
 .zca[Zero-cost abstractions]
+
+---
+
+# Qualities Rust shares with C(++)
+
+- **Zero-cost abstractions:**
+  - inline memory layout
+  - static dispatch
+  - no garbage collector or other runtime
+- Anywhere you use C, you can use Rust:
+  - Want to write a plugin for Python or Ruby? You can do it in Rust.
+  - Want to write a **kernel**? You can do it in Rust.
+
+---
+
+# Why not just use C++ then?
+
+--
+
+.center[.p60[![Wiley E Coyote on an exploding rocket](content/images/wiley-exploding-rocket.gif)]]
 
 ---
 
@@ -237,7 +237,7 @@ template: puzzle
 # Type system can be a hard sell
 
 .center[
-.forty[
+.p40[
 ![Dog eating spinach](content/images/spinach-dog.jpg)
 ]
 ]
@@ -266,14 +266,6 @@ Photo credit: Salim Virji<br>
 # What makes the difference?
 
 Rust type system is more than structs with fields and methods.
-
---
-
-Strong support for generic programming.
-
-Closures.
-
-Enums.
 
 ---
 
@@ -452,19 +444,9 @@ template: puzzle
 
 ---
 
-background-image: url(content/images/ownership-and-borrowing.png)
-background-size: contain
-
-.white-text[
 # Ownership and borrowing
-]
 
-.white-text[
-.citation[
-Photo Credit: Nathan Kam<br>
-`https://www.youtube.com/watch?v=Tnssn9KcWLg`
-]
-]
+.center[.p80[![Office space stapler](content/images/office-space.gif)]]
 
 ---
 
@@ -676,9 +658,7 @@ template: rust-lets-you-take-away
 
 template: rust-lets-you-take-away
 
-.line3[
-.fourty[![Highlight the call to eat](content/images/Arrow.png)]
-]
+.line3[![Highlight the call to eat](content/images/Arrow.png)]
 
 .lover-left[
 ![Person on the left](content/images/Lovers-Girl.png)
@@ -739,11 +719,16 @@ template: rust-lets-you-take-away-2
 .lover-left[![Person on the left](content/images/Lovers-Girl.png)]
 .lover-right[![Person on the right](content/images/Lovers-Boy.png)]
 
+--
+
+.line3-regalo[![Highlight `regalo`](content/images/Arrow.png)]
+
 ---
 
 template: rust-lets-you-take-away-2
 
 .line2-data[![Highlight `data: T`](content/images/Arrow.png)]
+.line3-regalo[![Highlight `regalo`](content/images/Arrow.png)]
 .lover-gift-right[![Gift](content/images/Gift.png)]
 .lover-left[![Person on the left](content/images/Lovers-Girl.png)]
 .lover-right[![Person on the right](content/images/Lovers-Boy.png)]
@@ -800,6 +785,12 @@ Tell story about me finally understanding what memory leaks are?
 
 Mention that the way I sell Rust to c++ programmers *now* is just to
 vtell them that I don't remember the last time I debugged a crash.
+
+---
+
+# Safety boosts productivity
+
+.center[.p80[![Wiley E Coyote paints a tunnel](content/images/wiley-tunnel.gif)]]
 
 ---
 
@@ -899,7 +890,7 @@ template: rayon-race
 
 template: rayon-race
 
-.line7b[![Point at `jpegs`'](content/images/Arrow.png)]
+.line7[![Point at `jpegs`'](content/images/Arrow.png)]
 
 ---
 
@@ -908,6 +899,43 @@ template: rayon-race
 > **The Rust compiler just saved me from a nasty threading bug.** I was working on cage (our open source development tool for Docker apps with lots of microservices), and I decided to parallelize the routine that transformed docker-compose.yml files. This was mostly an excuse to check out the awesome rayon library, but it turned into a great example of what real-world Rust development is like.
 
 .citation[`https://blog.faraday.io/saved-by-the-compiler-parallelizing-a-loop-with-rust-and-rayon/`]
+
+---
+
+# Parallel CSS Styling
+
+.center[.p80[![DOM Tree](content/images/dom-tree.png)]]
+
+.citation[`https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/`]
+
+---
+
+# Parallel CSS Styling
+
+.center[![Bug 631527](content/images/bug-631527.png)]
+
+--
+
+.bugzilla-arrow[![Arrow](content/images/Arrow.png)]
+
+--
+
+.center[.bugzilla1[Reported:] .bugzilla2[8 years ago]]
+
+---
+
+background-image: url(content/images/popeye.jpg)
+background-size: contain
+
+.white-text[
+# Type system as a superpower
+]
+
+.white-text[.citation[
+Photo credit: Salim Virji<br>
+`https://www.flickr.com/photos/salim/8594532469/`
+]]
+
 ---
 
 template: puzzle
@@ -989,89 +1017,6 @@ template: puzzle
 
 ---
 
-name: entry
-
-# Example: the entry API
-
-```rust
-my_map
-  .entry(some_key)
-  .or_insert(Vec::new())
-  .push(element);
-```
-
----
-
-template: entry
-
-.line1[
-![Arrow](content/images/Arrow.png)
-]
-
-- Given a hashmap `K -> Vec<V>`,
-
----
-
-template: entry
-
-.line2[
-![Arrow](content/images/Arrow.png)
-]
-
-- Given a hashmap `K -> Vec<V>`,
-  - lookup the value for the key `K` (if any)
-
----
-
-template: entry
-
-.line3[
-![Arrow](content/images/Arrow.png)
-]
-
-- Given a hashmap `K -> Vec<V>`,
-  - lookup the value for the key `K` (if any),
-  - insert an empty vector for `K` if nothing exists,
-
----
-
-template: entry
-
-.vec-new[
-![Arrow](content/images/Arrow.png)
-]
-
-- Given a hashmap `K -> Vec<V>`,
-  - lookup the value for the key `K` (if any),
-  - insert an empty vector for `K` if nothing exists,
-
----
-
-template: entry
-
-.line4[
-![Arrow](content/images/Arrow.png)
-]
-
-- Given a hashmap `K -> Vec<V>`,
-  - lookup the value for the key `K` (if any),
-  - insert an empty vector for `K` if nothing exists,
-  - push `element` onto the vector for `K`.
-
----
-
-template: entry
-
-- Given a hashmap `K -> Vec<V>`,
-  - lookup the value for the key `K` (if any),
-  - insert an empty vector for `K` if nothing exists,
-  - push `element` onto the vector for `K`.
-- **Ergonomic, yes.** But also:
-  - **Efficient:** reuse hash, internal indices from first lookup.
-  - **Robust:** `entry` borrows the map, so you can't intermix multiple insertions.
-
----
-
 template: puzzle
 
 .zca[Zero-cost abstractions]
@@ -1095,6 +1040,13 @@ template: puzzle
   - owned by the people who built it, not any one company
 - Open-**minded**
   - focused on finding the best answer, not on winning the argument
+  
+???
+
+Rust has always been open, in a lot of different ways.  But I think
+the most important for us has been the last one: open-minded. Or, as
+the slide says, focused on finding the **best answer** -- and not on
+winning the argument.
 
 ---
 
@@ -1110,14 +1062,35 @@ name: morethingschange
   - a **garbage collector 😱** (and not a good one)
 {{content}}
 
+???
+
+I talked earlier about what Rust looked like when I got here.  It was
+really a different language -- and I don't just mean the syntax. It
+didn't have the building blocks of zero-cost abstractions
+yet. Instead, it had a lot of things built in to the language. It had
+a garbage collector! And yet certain key things were present, even
+then.
+
 ---
 
-template: morethingschange
+# ...the more they stay the same
 
-- Some things have not changed:
+- When I started on Rust in 2011, it had a commitment to:
   - uncompromised efficiency
   - safety and correctness
   - a CoC and a culture that emphasizes **curiosity and deep research**
+
+???
+
+In particular, we had the right goals:
+
+- it had to be fast enough to truly replace C++
+- while still being safe.
+
+and we knew that we didn't know how to do that yet. Which is where the
+commitment to curiosity and research comes from -- those are what
+allowed us to evolve our way from the language we had then to the one
+that I just presented to you.
 
 ---
 
@@ -1130,6 +1103,12 @@ Great ideas in the development of Rust:
 - removing the runtime and garbage collector
 - adopting cargo
 - introducing the `Poll` trait (well, time will tell, but I think so)
+
+???
+
+There is no way we would have gotten here without an open
+process. Here is a very incomplete list of great ideas that were
+crucial.
 
 --
 
@@ -1152,6 +1131,106 @@ None were obvious at the time.
 ]
 
 .citation[`http://jlord.us/blog/osos-talk.html`]
+
+???
+
+While doing research for this talk, I came across this excellent blog
+post by Jessica Lord. You should read it, if you haven't already. But
+she put it really well: if you want to solve the hardest problems, you
+need all the ideas.
+
+---
+
+# In case you haven't noticed...
+
+...we're doing the impossible here, people!
+
+.center[.p50[![Bowl balancing act](content/images/bowl-balance.gif)]]
+
+???
+
+And yeah, I think we're solving the hardest problems. =) Or trying to!
+And we need all the help we can get!
+
+---
+
+.center[.p80[![Scylla and Charybdis](content/images/GillrayBritannia.jpg)]]
+
+.citation[https://en.wikipedia.org/wiki/File:GillrayBritannia.jpg]
+
+???
+
+Now a lot of times when I talk about this, people ask me -- sure, open
+sounds great, but without a single designer, how do you avoid the
+dangers of Design By Committee? It's a really good question. Design
+By Committee is a real thing.
+
+But what people often overlook, I think, is that there is a big danger
+either way. This is a picture of the rocks of Scylla and Charybdis,
+which Odysseus encountered in the Odyssey -- you knew I had to work in
+some greek myths *somewhere*, right? In the Odyssey, Odysseus had to avoid
+the whirlpool on the one hand, but steering too far would lead onto the rocks.
+
+I think that if the whirlpool, perhaps, is DbC, the rocks here could
+be the danger of thinking you understand the space when you don't. So
+many times in the history of Rust we encounter tradeoffs that seem
+insurmountable -- I mean heck, the very *idea* of Rust is a once
+insurmountable tradeoff! Threads without data races! The efficiency of
+C++ and the safety of Haskell! Can it be?
+
+Time and time again, the answer is **yes**. There is a solution -- but
+it involves some unorthodox thinking. Somewhere, there is a **hidden
+assumption** -- and the best way to find it is to get a lot of people
+looking.
+
+---
+
+template: puzzle
+
+.zca[Zero-cost abstractions]
+
+.modern-conveniences[Modern conveniences]
+
+.ownership-and-borrowing[Ownership and Borrowing]
+
+.craftsmanship[Sense of **craftsmanship**]
+
+.community[**Community**]
+
+---
+
+# Looking to the future
+
+.center[.p60[![Future robot](content/images/future-robot.gif)]]
+
+---
+
+# Think back to 1.0...
+
+<img src="content/images/total-crates-over-time.svg" alt="Total crates over time" width="1000rem" height="auto">
+
+.one-dot-oh[![Arrow](content/images/Arrow.png)]
+
+---
+
+# Hey, we did good!
+
+<video width="100%" height="auto" controls="controls">
+<source src="content/images/bowl-balance2.mp4" type="video/mp4">
+<param name="autoplay" value="true" />
+</video>
+
+---
+
+# But we got a long way to go
+
+**Then:** Prove Rust could work.
+
+**Now:** Prove we can handle the details.
+
+--
+
+And there are a lot of details.
 
 ---
 
