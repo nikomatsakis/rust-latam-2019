@@ -8,6 +8,7 @@ count: false
 .page-center[.p80[![Rust Logo](content/images/rust-logo-512x512.png)]]
 .king[![Drawing of King](content/images/King.png)]
 .queen[![Drawing of Queen](content/images/Queen.png)]
+.citation[`https://github.com/nikomatsakis/rust-latam-2019`]
 
 ---
 
@@ -260,6 +261,20 @@ background-size: contain
 Photo credit: Salim Virji<br>
 `https://www.flickr.com/photos/salim/8594532469/`
 ]]
+
+---
+
+# Parallel CSS Styling
+
+.center[![Bug 631527](content/images/bug-631527.png)]
+
+--
+
+.bugzilla-arrow[![Arrow](content/images/Arrow.png)]
+
+--
+
+.center[.bugzilla1[Reported:] .bugzilla2[8 years ago]]
 
 ---
 
@@ -764,6 +779,14 @@ https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=4a87aac5
 
 ---
 
+# What just happened?
+
+--
+
+.center[.p80[![Wiley E Coyote falls](content/images/wiley-batman-fall.gif)]]
+
+---
+
 # A pattern
 
 - Easy to **expose** a high-performance API
@@ -773,168 +796,11 @@ https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=4a87aac5
 ![cast spell, burn self](content/images/firespell.gif)
 ]
 
-???
-
-This is a big deal, especially when you are working
-with systems programs. The usual way of learning C++ was
-to write your code, have it crash a few dozen times until
-you finally grokked the unwritten rules, and then let it run,
-then realize
-
-Tell story about me finally understanding what memory leaks are?
-
-Mention that the way I sell Rust to c++ programmers *now* is just to
-vtell them that I don't remember the last time I debugged a crash.
-
 ---
 
-# Safety boosts productivity
+# This could be you
 
-.center[.p80[![Wiley E Coyote paints a tunnel](content/images/wiley-tunnel.gif)]]
-
----
-
-name: seq-iter
-
-# Sequential iterators
-
-```rust
-fn load_images(paths: &[PathBuf]) -> Vec<Image> {
-  paths
-    .iter()
-    .map(|path| Image::load(path))
-    .collect()
-}
-```
-
----
-
-template: seq-iter
-
-.line1[![Point at `paths`](content/images/Arrow.png)]
-
----
-
-template: seq-iter
-
-.line3[![Point at `iter`](content/images/Arrow.png)]
-
-- Create an iterator over paths
-
----
-
-template: seq-iter
-
-.line4[![Point at `iter`](content/images/Arrow.png)]
-
-- Create an iterator over paths
-- For each path, invoke `Image::load`
-
----
-
-template: seq-iter
-
-.line5[![Point at `iter`](content/images/Arrow.png)]
-
-- Create an iterator over paths
-- For each path, invoke `Image::load`
-- Collect loaded images into a vector
-
----
-
-name: rayon
-
-# Parallel iterators
-
-```rust
-fn load_images(paths: &[PathBuf]) -> Vec<Image> {
-  paths
-    .par_iter()
-    .map(|path| Image::load(path))
-    .collect()
-}
-```
-
-.line3[![Point at `par_iter`](content/images/Arrow.png)]
-
-- One change to execute in parallel
-
----
-
-name: rayon-race
-
-# Parallel iterators
-
-```rust
-fn load_images(paths: &[PathBuf]) -> Vec<Image> {
-  let mut jpegs = 0;
-  paths
-    .par_iter()
-    .map(|path| {
-      if path.ends_with(".jpg") {
-        jpegs += 1;
-      }
-      Image::load(path)
-    })
-    .collect()
-}
-```
-
----
-
-template: rayon-race
-
-.line2[![Point at `jpegs`'](content/images/Arrow.png)]
-
----
-
-template: rayon-race
-
-.line7[![Point at `jpegs`'](content/images/Arrow.png)]
-
----
-
-.center[![saved by the compiler](content/images/saved-by-compiler.png)]
-
-> **The Rust compiler just saved me from a nasty threading bug.** I was working on cage (our open source development tool for Docker apps with lots of microservices), and I decided to parallelize the routine that transformed docker-compose.yml files. This was mostly an excuse to check out the awesome rayon library, but it turned into a great example of what real-world Rust development is like.
-
-.citation[`https://blog.faraday.io/saved-by-the-compiler-parallelizing-a-loop-with-rust-and-rayon/`]
-
----
-
-# Parallel CSS Styling
-
-.center[.p80[![DOM Tree](content/images/dom-tree.png)]]
-
-.citation[`https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/`]
-
----
-
-# Parallel CSS Styling
-
-.center[![Bug 631527](content/images/bug-631527.png)]
-
---
-
-.bugzilla-arrow[![Arrow](content/images/Arrow.png)]
-
---
-
-.center[.bugzilla1[Reported:] .bugzilla2[8 years ago]]
-
----
-
-background-image: url(content/images/popeye.jpg)
-background-size: contain
-
-.white-text[
-# Type system as a superpower
-]
-
-.white-text[.citation[
-Photo credit: Salim Virji<br>
-`https://www.flickr.com/photos/salim/8594532469/`
-]]
+.center[.p80[![Wiley E Coyote flies](content/images/wiley-flies.gif)]]
 
 ---
 
@@ -961,9 +827,9 @@ template: puzzle
 
 # Best in class
 
-.page-center[
+.center[.p80[
 ![Tweet asking for libs](content/images/tweet-libs-call.png)
-]
+]]
 
 .citation[`https://twitter.com/nikomatsakis/status/1110166084496310272`]
 
@@ -1011,9 +877,9 @@ template: puzzle
 
 # Best in class
 
-.page-center[
+.center[.p80[
 ![Tweet about diesel](content/images/tweet-libs-diesel.jpg)
-]
+]]
 
 ---
 
@@ -1064,12 +930,13 @@ name: morethingschange
 
 ???
 
-I talked earlier about what Rust looked like when I got here.  It was
-really a different language -- and I don't just mean the syntax. It
-didn't have the building blocks of zero-cost abstractions
-yet. Instead, it had a lot of things built in to the language. It had
-a garbage collector! And yet certain key things were present, even
-then.
+When we started, we didn't really know what Rust should look like.
+The Rust of 2011, from a technical perspective, was not the Rust of
+today.  It had some but not all of the building blocks of zero-cost
+abstractions in place -- and, fundamentally, it was not a
+"library-based language" like Rust is today. Instead, it had a lot of
+things built in to the language. It had a garbage collector! And yet
+certain key things were present, even then.
 
 ---
 
@@ -1122,6 +989,10 @@ Each seems obvious now.
 
 None were obvious at the time.
 
+???
+
+In fact, they were often pretty controversial.
+
 ---
 
 .page-center[
@@ -1137,11 +1008,15 @@ None were obvious at the time.
 While doing research for this talk, I came across this excellent blog
 post by Jessica Lord. You should read it, if you haven't already. But
 she put it really well: if you want to solve the hardest problems, you
-need all the ideas.
+need all the ideas, from all of the people. You can't afford to shut
+people out.
+
 
 ---
 
 # In case you haven't noticed...
+
+--
 
 ...we're doing the impossible here, people!
 
@@ -1149,8 +1024,43 @@ need all the ideas.
 
 ???
 
-And yeah, I think we're solving the hardest problems. =) Or trying to!
-And we need all the help we can get!
+And yeah, in case you haven't noticed, we're trying to solve really
+hard problems. I might even say impossible people.  Hold on, let's
+just watch this for a second. Damn, that's wild.
+
+Yeah I mean think about what Rust is trying to do for a second. I used
+to introduce Rust by saying "we're trying to have our cake and eat it
+too" -- we want strong safety guarantees -- **stronger** than what you
+get from a Garbage collector -- but we don't want to pay for it with
+performance. We want threads and shared memory, but we don't want to
+pay for them by debugging data races. And we even want the language to
+feel ergonomic. It was far from clear it was going to work -- but
+somehow, we did it! And we did it only by having all the ideas, from
+all the people.
+
+---
+
+name: not-just-coders
+
+# Rust is not (just) the result of coders
+
+> .jlord[We need an open source for **designers** (who make documentation easier to read and give an identity to a project), **journalists and scientists** (who share their data), **polyglots** (who make projects accessible to not just those who speak English), **note takers and editors** (who can make resources and documentation better), **organizers** (who can triage the many issues created in open source projects), **mappers and data wranglers** and ...] <br>
+> <br>
+> &mdash; Jessica Lord (emphasis mine)
+
+.citation[`http://jlord.us/blog/osos-talk.html`]
+
+---
+
+# Speaking of which...
+
+.page-center[
+![Please clap!](content/images/please-clap.png)
+]
+
+<!--
+https://twitter.com/ag_dubs/status/1053726412207722502
+-->
 
 ---
 
@@ -1203,6 +1113,14 @@ template: puzzle
 
 .center[.p60[![Future robot](content/images/future-robot.gif)]]
 
+--
+
+.center[(The robot is written in Rust, naturally.)]
+
+--
+
+.center[(And the mom programmed it.)]
+
 ---
 
 # Think back to 1.0...
@@ -1210,6 +1128,14 @@ template: puzzle
 <img src="content/images/total-crates-over-time.svg" alt="Total crates over time" width="1000rem" height="auto">
 
 .one-dot-oh[![Arrow](content/images/Arrow.png)]
+
+???
+
+We're in a really different place than we were at 1.0. Back then, we
+had a core language, but that was about it. We had a few production
+users. Most of the standard library was unstable. We had a lot of work
+to do to prove that this Rust thing could work -- that the learning
+curve would be manageable, etc. 
 
 ---
 
@@ -1222,51 +1148,80 @@ template: puzzle
 
 ---
 
-# But we got a long way to go
+# Back then, we were like
 
-**Then:** Prove Rust could work.
+.center[.p60[![Multitasking spongebob](content/images/multitasking-spongebob.gif)]]
 
-**Now:** Prove we can handle the details.
+???
 
---
-
-And there are a lot of details.
-
----
-
-# Rust is not (just) the result of coders
-
-> .jlord[We need an open source for **designers** (who make documentation easier to read and give an identity to a project), **journalists and scientists** (who share their data), **polyglots** (who make projects accessible to not just those who speak English), **note takers and editors** (who can make resources and documentation better), **organizers** (who can triage the many issues created in open source projects), **mappers and data wranglers** and ...] <br>
-> <br>
-> &mdash; Jessica Lord (emphasis mine)
-
-.citation[`http://jlord.us/blog/osos-talk.html`]
+In those days, we were operating a lot like a small startup. If
+something had to get done, we got it done. 
 
 ---
 
-# Speaking of which...
+# It's gotten a bit better
 
-.page-center[
-![Please clap!](content/images/please-clap.png)
-]
+.center[.p60[![Multitasking knitter](content/images/multitasking-knitter.gif)]]
 
-<!--
-https://twitter.com/ag_dubs/status/1053726412207722502
--->
+???
+
+Since then, we've made a lot of progress, but many of us are still
+wearing a lot of hats.  It might be more like this.
+
+But the nature of the game now is different. We're not a startup --
+our goal is not to show that Rust **can** work. **Now we have to prove
+we can handle the details.**
+
+Thing is, there are a lot of details, and it's going to take a long
+time, so we've got to be organizing for the long haul. 
 
 ---
 
-# What's next for Rust?
+# Now we gotta be like
 
-Step 1: Recognize what we've done
+.center[.p60[![Obama's got this](content/images/obama-got-this.gif)]]
 
---
+???
 
-Step 2: Recognize how much further we have to go
+So this is what the Rust community to feel like. Calm and
+collected. Rational. Cool in a crisis.
 
 ---
 
 # Organizing for the long haul
+
+---
+
+![Paperwork like magic](content/images/paperwork.gif)
+
+---
+
+# Challenges
+
+- Communicating what we are doing, why, and how to get involved
+--
+
+- Productive  
+
+- Accessible:
+  - What is Rust doing and why
+  - How can you help
+
+---
+
+# Compiler team: working groups
+
+- [github.com/rust-lang/compiler-team](https://github.com/rust-lang/compiler-team)
+
+--
+- 
+
+--
+- Bar
+
+---
+
+template: not-just-coders
 
 ---
 

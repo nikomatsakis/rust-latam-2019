@@ -117,3 +117,115 @@ template: entry
   - **Efficient:** reuse hash, internal indices from first lookup.
   - **Robust:** `entry` borrows the map, so you can't intermix multiple insertions.
 
+
+
+
+---
+
+name: seq-iter
+
+# Sequential iterators
+
+```rust
+fn load_images(paths: &[PathBuf]) -> Vec<Image> {
+  paths
+    .iter()
+    .map(|path| Image::load(path))
+    .collect()
+}
+```
+
+---
+
+template: seq-iter
+
+.line1[![Point at `paths`](content/images/Arrow.png)]
+
+---
+
+template: seq-iter
+
+.line3[![Point at `iter`](content/images/Arrow.png)]
+
+- Create an iterator over paths
+
+---
+
+template: seq-iter
+
+.line4[![Point at `iter`](content/images/Arrow.png)]
+
+- Create an iterator over paths
+- For each path, invoke `Image::load`
+
+---
+
+template: seq-iter
+
+.line5[![Point at `iter`](content/images/Arrow.png)]
+
+- Create an iterator over paths
+- For each path, invoke `Image::load`
+- Collect loaded images into a vector
+
+---
+
+name: rayon
+
+# Parallel iterators
+
+```rust
+fn load_images(paths: &[PathBuf]) -> Vec<Image> {
+  paths
+    .par_iter()
+    .map(|path| Image::load(path))
+    .collect()
+}
+```
+
+.line3[![Point at `par_iter`](content/images/Arrow.png)]
+
+- One change to execute in parallel
+
+---
+
+name: rayon-race
+
+# Parallel iterators
+
+```rust
+fn load_images(paths: &[PathBuf]) -> Vec<Image> {
+  let mut jpegs = 0;
+  paths
+    .par_iter()
+    .map(|path| {
+      if path.ends_with(".jpg") {
+        jpegs += 1;
+      }
+      Image::load(path)
+    })
+    .collect()
+}
+```
+
+---
+
+template: rayon-race
+
+.line2[![Point at `jpegs`'](content/images/Arrow.png)]
+
+---
+
+template: rayon-race
+
+.line7[![Point at `jpegs`'](content/images/Arrow.png)]
+
+---
+
+.center[![saved by the compiler](content/images/saved-by-compiler.png)]
+
+> **The Rust compiler just saved me from a nasty threading bug.** I was working on cage (our open source development tool for Docker apps with lots of microservices), and I decided to parallelize the routine that transformed docker-compose.yml files. This was mostly an excuse to check out the awesome rayon library, but it turned into a great example of what real-world Rust development is like.
+
+.citation[`https://blog.faraday.io/saved-by-the-compiler-parallelizing-a-loop-with-rust-and-rayon/`]
+
+---
