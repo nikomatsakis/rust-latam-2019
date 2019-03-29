@@ -1150,7 +1150,7 @@ curve would be manageable, etc.
 
 # Back then, we were like
 
-.center[.p60[![Multitasking spongebob](content/images/multitasking-spongebob.gif)]]
+.center[.p80[![Multitasking spongebob](content/images/multitasking-spongebob.gif)]]
 
 ???
 
@@ -1159,7 +1159,7 @@ something had to get done, we got it done.
 
 ---
 
-# It's gotten a bit better
+# It's gotten better
 
 .center[.p60[![Multitasking knitter](content/images/multitasking-knitter.gif)]]
 
@@ -1190,22 +1190,13 @@ collected. Rational. Cool in a crisis.
 
 # Organizing for the long haul
 
----
-
-![Paperwork like magic](content/images/paperwork.gif)
+.center[.p80[![Paperwork like magic](content/images/paperwork.gif)]]
 
 ---
 
-# Challenges
+# Think like a volunteer
 
-- Communicating what we are doing, why, and how to get involved
---
-
-- Productive  
-
-- Accessible:
-  - What is Rust doing and why
-  - How can you help
+.center[.p60[![Volunteer baby](content/images/volunteer-baby.gif)]]
 
 ---
 
@@ -1214,14 +1205,47 @@ collected. Rational. Cool in a crisis.
 - [github.com/rust-lang/compiler-team](https://github.com/rust-lang/compiler-team)
 
 --
-- 
+- Regular meetings at various levels:
+  - working group
+  - triage (whole team)
+  - steering meeting (whole team, every 3 weeks)
 
 --
-- Bar
+- Working on introducing more levels of participation
+  - explicit mentorship pathways
 
 ---
 
-template: not-just-coders
+# Compiler team needs more than coders
+
+> .jlord[We need an open source for **designers** (who make documentation easier to read and give an identity to a project), **journalists and scientists** (who share their data), **polyglots** (who make projects accessible to not just those who speak English), **note takers and editors** (who can make resources and documentation better), **organizers** (who can triage the many issues created in open source projects), **mappers and data wranglers** and ...] <br>
+> <br>
+> &mdash; Jessica Lord (emphasis mine)
+
+.citation[`http://jlord.us/blog/osos-talk.html`]
+
+---
+
+# So many ways to help
+
+> .jlord[**We also need an open source whenever.** ... [We] are thankful for all that you can contribute whether it is two hours a week, one logo a year, or a copy edit twice a year.] <br>
+> <br>
+> &mdash; Jessica Lord (emphasis mine)
+
+- Organizing meetings, taking notes, scheduling meetings
+- Testing out features
+- Triaging bugs
+- Bisecting bugs and producing minimized test cases
+
+.citation[`http://jlord.us/blog/osos-talk.html`]
+
+---
+
+# Governance Working Group
+
+.center[.p100[![Governance WG thread](content/images/governance-wg.png)]]
+
+.citation[`https://internals.rust-lang.org/t/governance-working-group-announcement/9637`]
 
 ---
 
