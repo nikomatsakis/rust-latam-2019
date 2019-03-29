@@ -963,7 +963,7 @@ that I just presented to you.
 
 # Rust is not the result of any one person
 
-Great ideas in the development of Rust:
+(Some) great ideas in the development of Rust:
 
 - adopting the borrow checker (ownership and borrowing)
 - adopting the trait system
@@ -1024,19 +1024,8 @@ people out.
 
 ???
 
-And yeah, in case you haven't noticed, we're trying to solve really
-hard problems. I might even say impossible people.  Hold on, let's
-just watch this for a second. Damn, that's wild.
-
-Yeah I mean think about what Rust is trying to do for a second. I used
-to introduce Rust by saying "we're trying to have our cake and eat it
-too" -- we want strong safety guarantees -- **stronger** than what you
-get from a Garbage collector -- but we don't want to pay for it with
-performance. We want threads and shared memory, but we don't want to
-pay for them by debugging data races. And we even want the language to
-feel ergonomic. It was far from clear it was going to work -- but
-somehow, we did it! And we did it only by having all the ideas, from
-all the people.
+- Rust is trying to "have our cake and eat it too"
+- we did it only by having all the ideas, from all the people
 
 ---
 
@@ -1070,28 +1059,12 @@ https://twitter.com/ag_dubs/status/1053726412207722502
 
 ???
 
-Now a lot of times when I talk about this, people ask me -- sure, open
-sounds great, but without a single designer, how do you avoid the
-dangers of Design By Committee? It's a really good question. Design
-By Committee is a real thing.
-
-But what people often overlook, I think, is that there is a big danger
-either way. This is a picture of the rocks of Scylla and Charybdis,
-which Odysseus encountered in the Odyssey -- you knew I had to work in
-some greek myths *somewhere*, right? In the Odyssey, Odysseus had to avoid
-the whirlpool on the one hand, but steering too far would lead onto the rocks.
-
-I think that if the whirlpool, perhaps, is DbC, the rocks here could
-be the danger of thinking you understand the space when you don't. So
-many times in the history of Rust we encounter tradeoffs that seem
-insurmountable -- I mean heck, the very *idea* of Rust is a once
-insurmountable tradeoff! Threads without data races! The efficiency of
-C++ and the safety of Haskell! Can it be?
-
-Time and time again, the answer is **yes**. There is a solution -- but
-it involves some unorthodox thinking. Somewhere, there is a **hidden
-assumption** -- and the best way to find it is to get a lot of people
-looking.
+- What about design by committee?
+- But you must also steer clear of simple tradeoffs.
+- Have to also discuss the vision, keep the conversation focused on
+  that at the same time.
+- Finding the best ways to steer between these two dangers is one of
+  the core challenges.
 
 ---
 
@@ -1155,7 +1128,8 @@ curve would be manageable, etc.
 ???
 
 In those days, we were operating a lot like a small startup. If
-something had to get done, we got it done. 
+something had to get done, we got it done, but a lot of us were doing
+all kinds of things.
 
 ---
 
@@ -1165,15 +1139,14 @@ something had to get done, we got it done.
 
 ???
 
-Since then, we've made a lot of progress, but many of us are still
-wearing a lot of hats.  It might be more like this.
-
-But the nature of the game now is different. We're not a startup --
-our goal is not to show that Rust **can** work. **Now we have to prove
-we can handle the details.**
-
-Thing is, there are a lot of details, and it's going to take a long
-time, so we've got to be organizing for the long haul. 
+- Since then, we've made a lot of progress. 
+- We've got more teams.
+- But many of us are still doing too much -- even if we've found ways to balance it.
+- Not a startup anymore. We showed that Rust can work, and that you
+  could design it in an open way. **Now we have to prove we can handle
+  the details.**
+- Thing is, there are a lot of details, and it's going to take a long
+  time, so we've got to be organizing for the long haul.
 
 ---
 
@@ -1226,7 +1199,7 @@ collected. Rational. Cool in a crisis.
 
 ---
 
-# So many ways to help
+# Many hands make light work
 
 > .jlord[**We also need an open source whenever.** ... [We] are thankful for all that you can contribute whether it is two hours a week, one logo a year, or a copy edit twice a year.] <br>
 > <br>
