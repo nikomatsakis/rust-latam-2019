@@ -818,10 +818,9 @@ template: puzzle
 
 ---
 
-.page-center[
-<img src="content/images/spiderman-whee.gif"
-     alt="with great power comes great... weeeeee!">
-]
+.center[.p100[
+![with great power comes great .. wheeeee!](content/images/spiderman-whee.gif)
+]]
 
 ---
 
@@ -877,7 +876,7 @@ template: puzzle
 
 # Best in class
 
-.center[.p80[
+.center[.p100[
 ![Tweet about diesel](content/images/tweet-libs-diesel.jpg)
 ]]
 
@@ -967,8 +966,10 @@ that I just presented to you.
 
 - adopting the borrow checker (ownership and borrowing)
 - adopting the trait system
+- adopting RFCs for decision making
 - removing the runtime and garbage collector
 - adopting cargo
+- nightly, beta, and stable, and the 6-week releases
 - introducing the `Poll` trait (well, time will tell, but I think so)
 
 ???
