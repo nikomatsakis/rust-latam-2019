@@ -1085,16 +1085,6 @@ template: puzzle
 
 # Looking to the future
 
-.center[.p60[![Future robot](content/images/future-robot.gif)]]
-
---
-
-.center[(The robot is written in Rust, naturally.)]
-
---
-
-.center[(And the mom programmed it.)]
-
 ---
 
 # Think back to 1.0...
